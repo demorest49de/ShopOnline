@@ -23,6 +23,8 @@
     .container {
         max-width: 1024px;
         padding: 0 42px;
+        padding-left: 42px;
+        padding-right: 42px;
     }
 
     section {
@@ -34,6 +36,8 @@
     .container {
         max-width: 768px;
         padding: 0 34px;
+        padding-left:  34px;
+        padding-right: 34px;
     }
 
     section {
@@ -45,6 +49,8 @@
     .container {
         max-width: 520px;
         padding: 0 20px;
+        padding-left:  20px;
+        padding-right: 20px;
     }
 
     section {
