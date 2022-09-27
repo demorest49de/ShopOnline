@@ -1,149 +1,26 @@
 @font-face {
-  font-family: "Roboto";
-  src: local("Roboto"), local("Roboto-Regular"), url("../font/Roboto-Regular.ttf") format("truetype");
+  font-family: "Lato";
+  src: local("Lato"), local("Lato-Regular"), url("../font/Lato-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../font/Roboto-Medium.ttf") format("truetype");
-  font-weight: 500;
+  font-family: "Lato";
+  src: local("Lato"), local("lato-Bold"), url("../font/lato-Bold.ttf") format("truetype");
+  font-weight: 700;
   font-display: swap;
 }
 
 
 @font-face {
-  font-family: "Roboto";
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../font/Roboto-Bold.ttf") format("truetype");
+  font-family: "OpenSans";
+  src: local("OpenSans"), local("OpenSans-Bold"), url("../font/OpenSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-display: swap;
 }
 
 .container {
-  max-width: 1600px;
+  max-width: 1920px;
   margin: 0 auto;
-}
-
-.contacts {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  row-gap: 3px;
-}
-
-.phone {
-  margin-top: -8.7px;
-  margin-left: 1px;
-  font-weight: 400;
-  font-size: 23.85px;
-  line-height: 27.95px;
-
-}
-
-.call-me-back {
-  border-style: none;
-  background-color: transparent;
-  color: inherit;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18.75px;
-  text-decoration: underline;
-  text-underline-position: under;
-  padding-top: 8px;
-}
-
-.subtitle {
-  font-weight: 700;
-  font-size: 35px;
-  line-height: 41px;
-}
-
-.blue-button {
-  border: none;
-  background: #15A9CB;
-  box-shadow: 0px 4px 25px rgba(21, 169, 203, 0.3);
-  border-radius: 50px;
-  height: 48px;
-  color: inherit;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
-}
-
-.undertitle-text {
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 25.78px;
-}
-
-.logo {
-  width: 68px;
-  height: 68px;
-}
-
-@media (max-width: 1200px) {
-  .container {
-    padding: 0 30px;
-  }
-}
-
-
-@media (max-width: 1024px) {
-
-  .phone {
-    font-size: 21px;
-    line-height: 25px;
-  }
-
-  .call-me-back {
-    font-size: 13px;
-    line-height: 15px;
-  }
-
-  .subtitle {
-    font-size: 32px;
-    line-height: 38px;
-  }
-
-  .undertitle-text {
-    font-size: 20px;
-    line-height: 23px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-
-  .blue-button {
-    font-size: 16px;
-    line-height: 19px;
-  }
-
-  .subtitle {
-    font-size: 20px;
-    line-height: 23px;
-  }
-
-  .undertitle-text {
-    font-size: 16px;
-    line-height: 19px;
-  }
-
-  .phone{
-    display: none;
-  }
-
-  .call-me-back {
-    font-size: 0;
-    line-height: 0;
-    margin-bottom: 0;
-
-    width: 25px;
-    height: 25px;
-    background-image: url("../img/hero/hero__phone-small.png");
-    background-repeat: no-repeat;
-  }
 }
