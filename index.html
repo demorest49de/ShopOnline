@@ -8,7 +8,6 @@
 		<link rel="icon" type="image/png" href="img/logo/logo.png">
 		<link rel="preload" href="font/Lato-Regular.ttf" as="font" type="font/ttf" crossorigin>
 		<link rel="preload" href="font/Lato-Bold.ttf" as="font" type="font/ttf" crossorigin>
-		<link rel="preload" href="font/OpenSans-Bold.ttf" as="font" type="font/ttf" crossorigin>
 		<link rel="stylesheet" href="style.css">
 		<title>ShopOnline</title>
 </head>
@@ -16,11 +15,16 @@
 
 		<header class="header">
 				<div class="container header__container">
-						<a href="#" class="header__link">
-								<span class="header__text">Shop</span><span class="header__text_blue">Online</span>
-						</a>
 
-						<button class="header__button-menu">Меню</button>
+						<div class="header__logo-block">
+								<img
+												class="header__logo"
+												src="img/header/logo.svg"
+												alt="Логотип магазина ShopOnline"
+								/>
+						</div>
+
+						<button class="header__button-menu" aria-label="Открыть меню">Меню</button>
 
 						<form class="header__form-search form-search" method="post" name="header__form-search">
 								<input type="search"
