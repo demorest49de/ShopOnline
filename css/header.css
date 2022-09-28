@@ -5,7 +5,7 @@
 
 .header__container {
     display: grid;
-    grid-template-columns: 1fr 1fr 3fr 1fr;
+    grid-template-columns: 1fr 1fr 4fr 1fr;
     grid-template-rows: 54px;
     gap: 30px;
     align-items: stretch;
@@ -111,7 +111,7 @@
     height: 14px;
     border-radius: 50%;
     top: -5px;
-    right: 10px;
+    right: 12px;
     text-align: center;
     vertical-align: middle;
     font-size: 14px;
@@ -124,7 +124,7 @@
 @media (max-width: 1200px) {
     .header {
         padding-top: 34px;
-        padding-bottom: 60px;
+        padding-bottom: 30px;
     }
 
     .header__container {
@@ -158,7 +158,7 @@
 @media (max-width: 768px) {
     .header {
         padding-top: 25px;
-        padding-bottom: 50px;
+        padding-bottom: 25px;
     }
 
     .header__container {
@@ -227,7 +227,7 @@
 @media (max-width: 520px) {
     .header {
         padding-top: 20px;
-        padding-bottom: 41px;
+        padding-bottom: 21px;
     }
 
     .header__container {
