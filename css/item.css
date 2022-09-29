@@ -27,21 +27,19 @@
     justify-content: end;
     flex-direction: column;
     padding-bottom: 40px;
-    padding-left: 112px;
 }
 
 .item__text-one {
     margin-bottom: 100px;
-    font-size: 70px;
     font-weight: 700;
-    line-height: 91px;
-    max-width: 730px;
+    font-size: 70px;
+    line-height: 130%;
+    max-width: 836px;
     max-height: 91px;
+    padding-left: 112px;
 }
 
 .item__gallery-one {
-    z-index: 10;
-    /*opacity: 0.4;*/
 }
 
 .item__gallery-two {
