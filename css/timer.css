@@ -1,5 +1,6 @@
 .timer {
     max-width: 473px;
+    max-height: 104px;
     text-align: center;
     color: var(--white-color, #ffffff);
 }
