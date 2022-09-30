@@ -16,8 +16,8 @@ body {
     font-family: Lato, Arial, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    background-color: var(--white-color, #FFFFFF);
-    color: var(--white-color, #FFFFFF);
+    background-color: var(--white-color);
+    color: var(--white-color);
 }
 
 img {
