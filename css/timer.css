@@ -5,17 +5,17 @@
     color: var(--white-color, #ffffff);
 }
 
+.timer__block {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
 .timer__title {
     font-size: 16px;
     font-weight: 700;
     line-height: 130%;
     margin-bottom: 10px;
-}
-
-.timer__block {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
 }
 
 .timer__count {
@@ -32,7 +32,6 @@
 
 @media (max-width: 1200px) {
     .timer__block {
-        display: flex;
         gap: 20px;
     }
 
@@ -47,7 +46,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 520px) {
     .timer__title {
         font-size: 12px;
         line-height: 16.6px;
