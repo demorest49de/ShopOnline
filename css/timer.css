@@ -46,28 +46,6 @@
     }
 }
 
-/*@media (max-width: 768px) {*/
-/*    .timer__title {*/
-/*        font-size: 12px;*/
-/*        line-height: 16.6px;*/
-/*    }*/
-
-/*    .timer__block {*/
-/*        display: flex;*/
-/*        gap: 10px;*/
-/*    }*/
-
-/*    .timer__count {*/
-/*        font-size: 30px;*/
-/*        line-height: 39px;*/
-/*    }*/
-
-/*    .timer__units {*/
-/*        font-size: 16px;*/
-/*        line-height: 20.8px;*/
-/*    }*/
-/*}*/
-
 @media (max-width: 540px) {
     .timer__title {
         font-size: 8px;
