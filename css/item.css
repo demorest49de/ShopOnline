@@ -45,11 +45,11 @@
         padding-bottom: 36px;
     }
 
-    .item__text_bold {
+    .item__text-bold {
         font-weight: 700;
     }
 
-    .item__text_big {
+    .item__text-big {
         font-size: 56px;
         font-weight: 700;
         line-height: 67.2px;
@@ -353,7 +353,7 @@
         padding-bottom: 30px;
     }
 
-    .item__text_big {
+    .item__text-big {
         font-size: 40px;
         line-height: 48px;
     }
@@ -450,7 +450,7 @@
         row-gap: 22px;
     }
 
-    .item__text_big {
+    .item__text-big {
         font-size: 26px;
         line-height: 28.6px;
     }
@@ -563,7 +563,7 @@
         gap: 20px;
     }
 
-    .item__text_big {
+    .item__text-big {
         font-size: 16px;
         line-height: 17.6px;
     }
