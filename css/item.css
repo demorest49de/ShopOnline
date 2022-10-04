@@ -108,11 +108,14 @@
         background: linear-gradient(179.81deg, rgba(7, 7, 7, 0) 30.77%, rgba(0, 0, 0, 0.2) 99.83%);
     }
 
-    .item__gallery-three:after {
-        content: "-25%";
+    .item__gallery-discount:after{
         position: absolute;
         bottom: 20px;
         right: 20px;
+    }
+
+    .item__gallery-three:after {
+        content: "-25%";
     }
 
     .item__gallery-three {
@@ -137,9 +140,6 @@
 
     .item__gallery-four:after {
         content: "-40%";
-        position: absolute;
-        top: 20px;
-        left: 20px;
     }
 
     .item__gallery-four {
@@ -209,9 +209,6 @@
 
     .item__gallery-seven:after {
         content: "-15%";
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
     }
 
     .item__gallery-seven {
@@ -263,9 +260,6 @@
 
     .item__gallery-nine:after {
         content: "-55%";
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
     }
 
     .item__gallery-nine {
@@ -281,9 +275,6 @@
 
     .item__gallery-ten:after {
         content: "-25%";
-        position: absolute;
-        top: 20px;
-        left: 20px;
     }
 
     .item__gallery-ten {
