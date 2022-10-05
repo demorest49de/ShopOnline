@@ -2,10 +2,62 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 210px) repeat(4, 228px);
+
+    grid-template-areas:
+    "banner banner banner banner banner banner"
+    "banner banner banner banner banner banner"
+    "book   time   pair   pair   gift   gift"
+    "shoe   shoe   pair   pair   december   december"
+    "ny     ny     ny     ny     dress   chemi"
+    "ny     ny     ny     ny     dress   toys";
     gap: 60px;
 }
 
 @media (max-width: 4096px) {
+
+    .item__gallery-notebook {
+        grid-area: banner;
+    }
+
+    .item__gallery-book {
+        grid-area: book;
+    }
+
+    .item__gallery-time {
+        grid-area: time;
+    }
+
+    .item__gallery-shoes {
+        grid-area: shoe;
+    }
+
+    .item__gallery-second-pair {
+        grid-area: pair;
+    }
+
+    .item__gallery-gift-ideas {
+        grid-area: gift;
+    }
+
+    .item__gallery-profitable-december {
+        grid-area: december;
+    }
+
+    .item__gallery-new-year {
+        grid-area: ny;
+    }
+
+    .item__gallery-dresses {
+        grid-area: dress;
+    }
+
+    .item__gallery-chemicals {
+        grid-area: chemi;
+    }
+
+    .item__gallery-ny-toys {
+        grid-area: toys;
+    }
 
     .item__gallery {
         border-radius: 20px;
@@ -60,8 +112,6 @@
     }
 
     .item__gallery-notebook {
-        grid-column: 1 / 7;
-        grid-row: 1 / 3;
         background-image: url("../img/item/timer.jpg");
         background-size: cover;
         background-position: center;
@@ -86,8 +136,6 @@
     }
 
     .item__gallery-book {
-        grid-column: 1 / 2;
-        grid-row: 3 / 4;
         background-image: url("../img/item/1.jpg");
         display: flex;
         align-items: end;
@@ -108,13 +156,13 @@
         background: linear-gradient(179.81deg, rgba(7, 7, 7, 0) 30.77%, rgba(0, 0, 0, 0.2) 99.83%);
     }
 
-    .item__gallery-discount-bottom-left:after{
+    .item__gallery-discount-bottom-left:after {
         position: absolute;
         bottom: 20px;
         right: 20px;
     }
 
-    .item__gallery-discount-top-left:after{
+    .item__gallery-discount-top-left:after {
         position: absolute;
         top: 20px;
         left: 20px;
@@ -125,8 +173,6 @@
     }
 
     .item__gallery-time {
-        grid-column: 2 / 3;
-        grid-row: 3 / 4;
         background-image: url("../img/item/2.jpg");
         background-repeat: no-repeat;
         display: flex;
@@ -149,8 +195,6 @@
     }
 
     .item__gallery-shoes {
-        grid-column: 1 / 3;
-        grid-row: 4 / 5;
         display: flex;
     }
 
@@ -165,8 +209,6 @@
     }
 
     .item__gallery-second-pair {
-        grid-column: 3 / 5;
-        grid-row: 3 / 5;
         background-image: url("../img/item/4.jpg");
         background-repeat: no-repeat;
         display: grid;
@@ -186,13 +228,11 @@
         margin: auto 20px 20px 20px;
     }
 
-    .item__gallery-new-ideas:before {
+    .item__gallery-gift-ideas:before {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 7.46%, rgba(0, 0, 0, 0.2) 100%);
     }
 
-    .item__gallery-new-ideas {
-        grid-column: 5 / 7;
-        grid-row: 3 / 4;
+    .item__gallery-gift-ideas {
         background-image: url("../img/item/5.jpg");
         background-size: cover;
         background-repeat: no-repeat;
@@ -218,8 +258,6 @@
     }
 
     .item__gallery-profitable-december {
-        grid-column: 5 / 7;
-        grid-row: 4 / 5;
         background-image: url("../img/item/6.jpg");
         background-size: cover;
         display: flex;
@@ -239,8 +277,6 @@
     }
 
     .item__gallery-new-year {
-        grid-column: 1 / 5;
-        grid-row: 5 / 7;
         background-image: url("../img/item/7.jpg");
         background-size: cover;
         display: flex;
@@ -269,8 +305,6 @@
     }
 
     .item__gallery-dresses {
-        grid-column: 5 / 6;
-        grid-row: 5 / 7;
         background-image: url("../img/item/8.jpg");
         background-size: cover;
     }
@@ -284,8 +318,6 @@
     }
 
     .item__gallery-chemicals {
-        grid-column: 6 / 7;
-        grid-row: 5 / 6;
         background-image: url("../img/item/9.jpg");
         background-size: cover;
         display: flex;
@@ -304,13 +336,8 @@
         background: linear-gradient(179.81deg, rgba(7, 7, 7, 0) 30.77%, rgba(0, 0, 0, 0.2) 99.83%);
     }
 
-    .item__gallery-ny-toys {
-        grid-column: 6 / 7;
-        grid-row: 6 / 7;
-    }
-
     .item__image-ny-toys {
-        transform: matrix(-1, 0, 0, 1, 0, 0)  scale(1.5);
+        transform: matrix(-1, 0, 0, 1, 0, 0) scale(1.5);
         object-fit: cover;
         object-position: 21px -1px;
         height: 100%;
@@ -342,6 +369,16 @@
         grid-template-rows: repeat(2, 160px) 202px repeat(3, 194px) repeat(2, 214px);
         column-gap: 30px;
         row-gap: 22px;
+
+        grid-template-areas:
+    "banner banner banner banner"
+    "banner banner banner banner"
+    "book   time   pair   pair  "
+    "shoe   shoe   pair   pair  "
+    "gift   gift   dress  chemi"
+    "december     december     dress  toys"
+    "ny     ny     ny     ny"
+    "ny     ny     ny     ny";
     }
 
     .item__timer {
@@ -354,8 +391,6 @@
     }
 
     .item__gallery-notebook {
-        grid-column: 1 / 5;
-        grid-row: 1 / 3;
         gap: 63px;
     }
 
@@ -383,19 +418,9 @@
         max-width: 1440px;
     }
 
-    .item__gallery-new-ideas {
-        grid-column: 1 / 3;
-        grid-row: 5 / 6;
-    }
-
     .item__text-new-ideas {
         font-size: 30px;
         line-height: 39px;
-    }
-
-    .item__gallery-profitable-december {
-        grid-column: 1 / 3;
-        grid-row: 6 / 7;
     }
 
     .item__text-profitable-december {
@@ -406,7 +431,6 @@
     }
 
     .item__gallery-new-year {
-        grid-row: 7 / 9;
         margin-top: 32px;
     }
 
@@ -419,27 +443,15 @@
         margin: auto auto 39px 30px;
     }
 
-    .item__gallery-dresses {
-        grid-column: 3 / 4;
-    }
-
-    .item__gallery-chemicals {
-        grid-column: 4 / 5;
-    }
-
     .item__text-chemicals {
         font-size: 20px;
         line-height: 22px;
-    }
-
-    .item__gallery-ny-toys {
-        grid-column: 4 / 5;
     }
 }
 
 @media (max-width: 768px) {
     .item__container {
-        grid-template-columns: 1fr 1fr 1.4fr 1.3fr;
+        grid-template-columns: 1fr 1fr 1.3fr 1.3fr;
         grid-template-rows: repeat(2, 138px) 130px repeat(3, 126px) repeat(2, 157.5px);
         column-gap: 20px;
         row-gap: 22px;
@@ -554,8 +566,23 @@
 @media (max-width: 599px) {
     .item__container {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(2, 160px) 120px 118px repeat(2, 93px) repeat(2, 118px) repeat(2, 95px) 123px;
+        grid-template-rows: repeat(2, 160px) repeat(8, 130px) repeat(2, 123px);
         gap: 20px;
+
+        grid-template-areas:
+    "banner banner "
+    "banner banner "
+    "book   time   "
+    "shoe   shoe   "
+    "shoe   shoe   "
+    "pair   pair   "
+    "pair   pair   "
+    "gift   gift"
+    "december     december"
+    "dress     chemi"
+    "dress     toys"
+    "ny     ny"
+    ;
     }
 
     .item__text-big {
@@ -564,8 +591,6 @@
     }
 
     .item__gallery-notebook {
-        grid-column: 1 / 3;
-        grid-row: 1 / 3;
         align-items: center;
         gap: 187px;
     }
@@ -576,19 +601,9 @@
         line-height: 28.6px;
     }
 
-    .item__gallery-book {
-        grid-column: 1 / 2;
-        grid-row: 3 / 4;
-    }
-
     .item__text-book {
         font-size: 12px;
         line-height: 13.2px;
-    }
-
-    .item__gallery-time {
-        grid-column: 2 / 3;
-        grid-row: 3 / 4;
     }
 
     .item__text-time {
@@ -596,14 +611,7 @@
         line-height: 15.6px;
     }
 
-    .item__gallery-shoes {
-        grid-column: 1 / 3;
-        grid-row: 4 / 5;
-    }
-
     .item__gallery-second-pair {
-        grid-column: 1 / 3;
-        grid-row: 5 / 7;
         text-align: center;
     }
 
@@ -614,30 +622,15 @@
         margin: auto 10px 10px 10px;
     }
 
-    .item__gallery-new-ideas {
-        grid-column: 1 / 3;
-        grid-row: 7 / 8;
-    }
-
     .item__text-new-ideas {
         font-size: 12px;
         line-height: 14.4px;
-    }
-
-    .item__gallery-profitable-december {
-        grid-column: 1 / 3;
-        grid-row: 8 / 9;
     }
 
     .item__text-profitable-december {
         font-size: 12px;
         line-height: 14.4px;
         max-width: 150px;
-    }
-
-    .item__gallery-new-year {
-        grid-column: 1 / 3;
-        grid-row: 11 / 12;
     }
 
     .item__text-new-year {
@@ -647,25 +640,10 @@
         margin: auto auto 10px 15px;
     }
 
-    .item__gallery-dresses {
-        grid-column: 1 / 2;
-        grid-row: 9 / 11;
-    }
-
-    .item__gallery-chemicals {
-        grid-column: 2 / 3;
-        grid-row: 9 / 10;
-    }
-
     .item__text-chemicals {
         font-size: 12px;
         line-height: 14.4px;
         padding: 0 10px 5px 9px;
-    }
-
-    .item__gallery-ny-toys {
-        grid-column: 2 / 3;
-        grid-row: 10 / 11;
     }
 }
 
