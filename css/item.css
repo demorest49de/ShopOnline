@@ -566,14 +566,13 @@
 @media (max-width: 599px) {
     .item__container {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(2, 160px) repeat(8, 130px) repeat(2, 123px);
+        grid-template-rows: repeat(2, 160px) repeat(8, 130px) repeat(1, 123px);
         gap: 20px;
 
         grid-template-areas:
     "banner banner "
     "banner banner "
     "book   time   "
-    "shoe   shoe   "
     "shoe   shoe   "
     "pair   pair   "
     "pair   pair   "
