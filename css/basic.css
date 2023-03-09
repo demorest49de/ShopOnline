@@ -1,13 +1,27 @@
 @font-face {
+    font-family: "Inter";
+    src: url("../font/Inter-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../font/Inter-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
     font-family: "Lato";
-    src: local("Lato"), local("Lato-Regular"), url("../font/Lato-Regular.ttf") format("truetype");
+    src: local('Lato-Regular'), url("../font/Lato-Regular.ttf") format("truetype");
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Lato";
-    src: local("Lato"), local("lato-Bold"), url("../font/lato-Bold.ttf") format("truetype");
+    src: local("Lato-Bold"), url("../font/Lato-Bold.ttf") format("truetype");
     font-weight: 700;
     font-display: swap;
 }
@@ -23,8 +37,6 @@
     .container {
         max-width: 1200px;
         padding: 0 42px;
-        padding-left: 42px;
-        padding-right: 42px;
     }
 }
 
@@ -32,8 +44,6 @@
     .container {
         max-width: 768px;
         padding: 0 34px;
-        padding-left:  34px;
-        padding-right: 34px;
     }
 }
 

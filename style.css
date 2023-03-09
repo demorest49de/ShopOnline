@@ -1,9 +1,9 @@
 @import "css/normalize.css";
-@import "css/global.css";
 @import "css/basic.css";
+@import "css/global.css";
 @import "css/var.css";
 @import "css/header.css";
 @import "css/main.css";
 @import "css/item.css";
-@import "css/timer.css";
-@import "css/footer.css";
+/*@import "css/timer.css";*/
+/*@import "css/footer.css";*/
