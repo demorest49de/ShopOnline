@@ -54,30 +54,36 @@ export const handleTimerScreenSize = () => {
   const allElements = banner.querySelectorAll('.timer__count,.timer__units,.item__text-notebook');
   console.log(': ', allElements);
 
+  getInitialSize(allElements);
+
   allElements.forEach(item => {
     changeSize(item);
   });
 };
 
+const getInitialSize = (allElements) => {
+  allElements.forEach(item => {
+    // const initialFontSize = window.getComputedStyle(item, null).getPropertyValue('font-size');
+    const initialFontSize = window.getComputedStyle(item, null).getPropertyValue('font-size');
+    item.setAttribute('data-initial-font-size', initialFontSize);
+  });
+};
+
 const changeSize = (item) => {
-  const promoFontSize = window.getComputedStyle(item, null).getPropertyValue('font-size');
-  const numberOfSize = promoFontSize.match(/\d+/g)[0];
+  const fontSize = item.getAttribute('data-initial-font-size');
+  const numberOfSize = fontSize.match(/\d+/g)[0];
   window.addEventListener('resize', (e) => {
     const screen = e.target.screen;
 
-    if (screen.width <= 645) {
-      const reducedSize = Math.floor(numberOfSize - numberOfSize / 100 * 30);
-      console.log(': ', reducedSize);
-      item.style.fontSize = `${reducedSize}px`;
-    } else {
-      item.style.fontSize = promoFontSize;
-    }
     if (screen.width <= 420) {
       const reducedSize = Math.floor(numberOfSize - numberOfSize / 100 * 50);
       console.log(': ', reducedSize);
       item.style.fontSize = `${reducedSize}px`;
+    } else if (screen.width <= 645) {
+      const reducedSize = Math.floor(numberOfSize - numberOfSize / 100 * 30);
+      item.style.fontSize = `${reducedSize}px`;
     } else {
-      item.style.fontSize = promoFontSize;
+      item.style.fontSize = item.getAttribute('data-initial-font-size');
     }
   });
 };
