@@ -49,27 +49,35 @@ export const handleTimer = (deadline) => {
 
 export const handleTimerScreenSize = () => {
   const banner = document.querySelector('.item__gallery-notebook');
-  const bannerPromoText = banner.querySelector('.item__text-notebook');
+  // const bannerPromoText = banner.querySelector('.item__text-notebook');
 
   const allElements = banner.querySelectorAll('.timer__count,.timer__units,.item__text-notebook');
-  console.log(': ',allElements);
+  console.log(': ', allElements);
 
-  const promoFontSize = window.getComputedStyle(bannerPromoText, null).getPropertyValue('font-size');
+  allElements.forEach(item => {
+    changeSize(item);
+  });
+};
 
+const changeSize = (item) => {
+  const promoFontSize = window.getComputedStyle(item, null).getPropertyValue('font-size');
   const numberOfSize = promoFontSize.match(/\d+/g)[0];
-
   window.addEventListener('resize', (e) => {
     const screen = e.target.screen;
 
     if (screen.width <= 645) {
       const reducedSize = Math.floor(numberOfSize - numberOfSize / 100 * 30);
       console.log(': ', reducedSize);
-      bannerPromoText.style.fontSize = `${reducedSize}px`;
+      item.style.fontSize = `${reducedSize}px`;
     } else {
-
-      bannerPromoText.style.fontSize = promoFontSize;
+      item.style.fontSize = promoFontSize;
+    }
+    if (screen.width <= 420) {
+      const reducedSize = Math.floor(numberOfSize - numberOfSize / 100 * 50);
+      console.log(': ', reducedSize);
+      item.style.fontSize = `${reducedSize}px`;
+    } else {
+      item.style.fontSize = promoFontSize;
     }
   });
-
-
 };
