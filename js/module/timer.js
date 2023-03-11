@@ -1,5 +1,4 @@
 export const handleTimer = (deadline) => {
-  handleTimerScreenSize();
 
   const timerBlockDays = document.querySelector('.timer__count.timer-days');
   const timerBlockHour = document.querySelector('.timer__count.timer-hours');
@@ -41,6 +40,15 @@ export const handleTimer = (deadline) => {
       timerBlockMinutes.textContent = '00';
       timerBlockSeconds.textContent = '00';
       clearInterval(intevalId);
+      const timer = document.querySelector('.timer');
+      timer.remove();
+      const timerPromoText = document.querySelector('.item__text-notebook');
+      timerPromoText.textContent = 'ноутбуки - всегда отличный подарок';
+      timerPromoText.classList.add('item__text-notebook-changed');
+      const itemGallery = timerPromoText.closest('.item__gallery-notebook');
+      itemGallery.classList.add('item__gallery-notebook-changed');
+    } else {
+      handleTimerScreenSize();
     }
   };
 
@@ -49,23 +57,11 @@ export const handleTimer = (deadline) => {
 
 export const handleTimerScreenSize = () => {
   const banner = document.querySelector('.item__gallery-notebook');
-  // const bannerPromoText = banner.querySelector('.item__text-notebook');
 
   const allElements = banner.querySelectorAll('.timer__count,.timer__units,.item__text-notebook');
-  console.log(': ', allElements);
-
-  getInitialSize(allElements);
 
   allElements.forEach(item => {
     changeSize(item);
-  });
-};
-
-const getInitialSize = (allElements) => {
-  allElements.forEach(item => {
-    // const initialFontSize = window.getComputedStyle(item, null).getPropertyValue('font-size');
-    const initialFontSize = window.getComputedStyle(item, null).getPropertyValue('font-size');
-    item.setAttribute('data-initial-font-size', initialFontSize);
   });
 };
 

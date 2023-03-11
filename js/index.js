@@ -2,7 +2,7 @@ import {handleTimer} from "./module/timer.js";
 
 {
   const init = () => {
-    const deadline = '03/28/23 18:21';
+    const deadline = document.querySelector('.timer').getAttribute('data-deadline');
     handleTimer(deadline);
 
   };
