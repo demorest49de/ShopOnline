@@ -32,6 +32,8 @@ export const handleTimer = (deadline) => {
     timerBlockMinutes.textContent = timer.minutes.toString();
     timerBlockSeconds.textContent = timer.seconds.toString();
 
+    handleTextDeclension(timer);
+
     const intevalId = setTimeout(start, 1000);
 
     if (timer.timeRemaining <= 0) {
@@ -47,39 +49,12 @@ export const handleTimer = (deadline) => {
       timerPromoText.classList.add('item__text-notebook-changed');
       const itemGallery = timerPromoText.closest('.item__gallery-notebook');
       itemGallery.classList.add('item__gallery-notebook-changed');
-    } else {
-      handleTimerScreenSize();
     }
   };
 
   start();
 };
 
-export const handleTimerScreenSize = () => {
-  const banner = document.querySelector('.item__gallery-notebook');
+const handleTextDeclension = (timer) => {
 
-  const allElements = banner.querySelectorAll('.timer__count,.timer__units,.item__text-notebook');
-
-  allElements.forEach(item => {
-    changeSize(item);
-  });
-};
-
-const changeSize = (item) => {
-  const fontSize = item.getAttribute('data-initial-font-size');
-  const numberOfSize = fontSize.match(/\d+/g)[0];
-  window.addEventListener('resize', (e) => {
-    const screen = e.target.screen;
-
-    if (screen.width <= 420) {
-      const reducedSize = Math.floor(numberOfSize - numberOfSize / 100 * 50);
-      console.log(': ', reducedSize);
-      item.style.fontSize = `${reducedSize}px`;
-    } else if (screen.width <= 645) {
-      const reducedSize = Math.floor(numberOfSize - numberOfSize / 100 * 30);
-      item.style.fontSize = `${reducedSize}px`;
-    } else {
-      item.style.fontSize = item.getAttribute('data-initial-font-size');
-    }
-  });
 };

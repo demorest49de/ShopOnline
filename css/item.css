@@ -613,7 +613,7 @@
 
     .item__gallery-notebook {
         align-items: center;
-        gap: 187px;
+        gap: 168px;
     }
 
 
@@ -667,6 +667,12 @@
         font-size: 12px;
         line-height: 14.4px;
         padding: 0 10px 5px 9px;
+    }
+}
+
+@media (max-width: 540px) {
+    .item__gallery-notebook {
+        gap: 189px;
     }
 }
 

@@ -46,7 +46,7 @@
     }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 599px) {
     .timer__title {
         font-size: 8px;
         line-height: 10.6px;
