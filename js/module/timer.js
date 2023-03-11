@@ -56,5 +56,6 @@ export const handleTimer = (deadline) => {
 };
 
 const handleTextDeclension = (timer) => {
-
+  const days = [[1, 'день'],[2, 'дня'], [5, 'дней']];
+  const hours = [[1, 'день'],[2, 'дня'], [5, 'дней']];
 };
