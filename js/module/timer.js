@@ -1,9 +1,14 @@
 export const handleTimer = (deadline) => {
 
-  const timerBlockDays = document.querySelector('.timer__count.timer-days');
-  const timerBlockHour = document.querySelector('.timer__count.timer-hours');
-  const timerBlockMinutes = document.querySelector('.timer__count.timer-minutes');
-  const timerBlockSeconds = document.querySelector('.timer__count.timer-seconds');
+  const timerBlockDays = document.querySelector('.timer-days-num');
+  const timerBlockHour = document.querySelector('.timer-hours-num');
+  const timerBlockMinutes = document.querySelector('.timer-minutes-num');
+  const timerBlockSeconds = document.querySelector('.timer-seconds-num');
+
+  const textDays = document.querySelector('.timer-days-text');
+  const textHour = document.querySelector('.timer-hours-text');
+  const textMinutes = document.querySelector('.timer-minutes-text');
+  const textSeconds = document.querySelector('.timer-seconds-text');
 
   const getTimeRemaining = () => {
     const dateStop = new Date(deadline).getTime();
@@ -26,13 +31,13 @@ export const handleTimer = (deadline) => {
   };
   const start = () => {
     const timer = getTimeRemaining();
+    // const {days, seconds, timeRemaining, minutes, hours} = timer;
+    handleTextDeclension(timer);
 
     timerBlockDays.textContent = timer.days.toString();
     timerBlockHour.textContent = timer.hours.toString();
     timerBlockMinutes.textContent = timer.minutes.toString();
     timerBlockSeconds.textContent = timer.seconds.toString();
-
-    handleTextDeclension(timer);
 
     const intevalId = setTimeout(start, 1000);
 
@@ -52,14 +57,39 @@ export const handleTimer = (deadline) => {
     }
   };
 
-  start();
-};
+  const handleTextDeclension = ({days: day, seconds: sec, minutes: min, hours: hour}) => {
+    //исключить интервалы после 5 и до 19
 
-const handleTextDeclension = (timer) => {
-  //подсказка при переборе будем смотреть на последнюю цифру
-  //исключить интервалы после 5 и до 19
-  const days = [[1, 'день'],[2, 'дня'], [0, 5, 'дней']];
-  const hours = [[1, 'час'],[2, 'часа'], [0, 5, 'часов']];
-  const minutes = [[1, 'минута'],[2, 'минуты'], [0, 5, 'минут']];
-  const seconds = [[1, 'секунда'],[2, 'секунды'], [0, 5, 'секунд']];
+    //подсказка при переборе будем смотреть на последнюю цифру
+    const days = [[0, 0, 'дней'], [1, 1, 'день'], [2, 4, 'дня'], [5, 9, 'дней']];
+
+    const hours = [[0, 0, 'часов'], [1, 1, 'час'], [2, 4, 'часа'], [5, 9, 'часов']];
+    const minutes = [[0, 0, 'минут'], [1, 1, 'минута'], [2, 4, 'минуты'], [5, 9, 'минут']];
+    const seconds = [[0, 0, 'секунд'], [1, 1, 'секунда'], [2, 4, 'секунды'], [5, 9, 'секунд']];
+    const exludeRange = [11, 19];
+
+    const currentDate = [[day, days, textDays], [hour, hours, textHour], [min, minutes, textMinutes], [sec, seconds, textSeconds]];
+
+
+    const getLastDigit = (number) => {
+      return number % 10;
+    };
+
+    const insideExludeRange = ([left, right], number) => {
+      return number > left && number < right;
+    };
+
+    for (const [number, numAndText, textSelector] of currentDate) {
+      if (insideExludeRange(exludeRange, number)) return;
+      const digit = getLastDigit(number);
+      for (const [left, right, text] of numAndText) {
+        if (digit >= left && digit <= right) {
+          textSelector.textContent = text;
+        }
+      }
+    }
+  };
+
+
+  start();
 };
