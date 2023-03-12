@@ -1,5 +1,4 @@
 export const handleTimer = (deadline) => {
-
   const timerBlockDays = document.querySelector('.timer-days-num');
   const timerBlockHour = document.querySelector('.timer-hours-num');
   const timerBlockMinutes = document.querySelector('.timer-minutes-num');
@@ -29,13 +28,48 @@ export const handleTimer = (deadline) => {
       days,
     };
   };
+
+  const handleTextDeclension =
+    ({days: day, seconds: sec, minutes: min, hours: hour}) => {
+      const days = [[0, 0, 'дней'], [1, 1, 'день'],
+        [2, 4, 'дня'], [5, 9, 'дней']];
+
+      const hours = [[0, 0, 'часов'], [1, 1, 'час'],
+        [2, 4, 'часа'], [5, 9, 'часов']];
+      const minutes = [[0, 0, 'минут'], [1, 1, 'минута'],
+        [2, 4, 'минуты'], [5, 9, 'минут']];
+      const seconds = [[0, 0, 'секунд'], [1, 1, 'секунда'],
+        [2, 4, 'секунды'], [5, 9, 'секунд']];
+      const exludeRange = [11, 19];
+
+      const currentDate = [[day, days, textDays], [hour, hours, textHour],
+        [min, minutes, textMinutes], [sec, seconds, textSeconds]];
+
+
+      const getLastDigit = (number) => number % 10;
+
+      const insideExludeRange = ([left, right], number) =>
+        number >= left && number <= right;
+
+      for (const [number, numAndText, textSelector] of currentDate) {
+        if (insideExludeRange(exludeRange, number)) return;
+        const digit = getLastDigit(number);
+        for (const [left, right, text] of numAndText) {
+          if (digit >= left && digit <= right) {
+            textSelector.textContent = text;
+          }
+        }
+      }
+    };
+
+
   const start = () => {
     const timer = getTimeRemaining();
-    // const {days, seconds, timeRemaining, minutes, hours} = timer;
     handleTextDeclension(timer);
 
 
-    timer.days === 0 ? timerBlockDays.closest('p').remove() : timerBlockDays.textContent = timer.days.toString();
+    timer.days === 0 ? timerBlockDays.closest('p').remove() :
+      timerBlockDays.textContent = timer.days.toString();
     timerBlockHour.textContent = timer.hours.toString();
     timerBlockMinutes.textContent = timer.minutes.toString();
     timerBlockSeconds.textContent = timer.seconds.toString();
@@ -55,39 +89,6 @@ export const handleTimer = (deadline) => {
       timerPromoText.classList.add('item__text-notebook-changed');
       const itemGallery = timerPromoText.closest('.item__gallery-notebook');
       itemGallery.classList.add('item__gallery-notebook-changed');
-    }
-  };
-
-  const handleTextDeclension = ({days: day, seconds: sec, minutes: min, hours: hour}) => {
-    //исключить интервалы после 5 и до 19
-
-    //подсказка при переборе будем смотреть на последнюю цифру
-    const days = [[0, 0, 'дней'], [1, 1, 'день'], [2, 4, 'дня'], [5, 9, 'дней']];
-
-    const hours = [[0, 0, 'часов'], [1, 1, 'час'], [2, 4, 'часа'], [5, 9, 'часов']];
-    const minutes = [[0, 0, 'минут'], [1, 1, 'минута'], [2, 4, 'минуты'], [5, 9, 'минут']];
-    const seconds = [[0, 0, 'секунд'], [1, 1, 'секунда'], [2, 4, 'секунды'], [5, 9, 'секунд']];
-    const exludeRange = [11, 19];
-
-    const currentDate = [[day, days, textDays], [hour, hours, textHour], [min, minutes, textMinutes], [sec, seconds, textSeconds]];
-
-
-    const getLastDigit = (number) => {
-      return number % 10;
-    };
-
-    const insideExludeRange = ([left, right], number) => {
-      return number >= left && number <= right;
-    };
-
-    for (const [number, numAndText, textSelector] of currentDate) {
-      if (insideExludeRange(exludeRange, number)) return;
-      const digit = getLastDigit(number);
-      for (const [left, right, text] of numAndText) {
-        if (digit >= left && digit <= right) {
-          textSelector.textContent = text;
-        }
-      }
     }
   };
 

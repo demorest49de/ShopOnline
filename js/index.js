@@ -1,10 +1,10 @@
-import {handleTimer} from "./module/timer.js";
+import {handleTimer} from './module/timer.js';
 
 {
   const init = () => {
-    const deadline = document.querySelector('.timer').getAttribute('data-deadline');
+    const deadline = document.querySelector('.timer')
+        .getAttribute('data-deadline');
     handleTimer(deadline);
-
   };
 
   init();
