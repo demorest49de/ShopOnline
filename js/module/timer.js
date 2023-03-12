@@ -33,7 +33,9 @@ export const handleTimer = (deadline) => {
     const timer = getTimeRemaining();
     // const {days, seconds, timeRemaining, minutes, hours} = timer;
     handleTextDeclension(timer);
-    timerBlockDays.textContent = timer.days.toString();
+
+
+    timer.days === 0 ? timerBlockDays.closest('p').remove() : timerBlockDays.textContent = timer.days.toString();
     timerBlockHour.textContent = timer.hours.toString();
     timerBlockMinutes.textContent = timer.minutes.toString();
     timerBlockSeconds.textContent = timer.seconds.toString();
