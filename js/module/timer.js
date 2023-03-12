@@ -33,7 +33,6 @@ export const handleTimer = (deadline) => {
     const timer = getTimeRemaining();
     // const {days, seconds, timeRemaining, minutes, hours} = timer;
     handleTextDeclension(timer);
-
     timerBlockDays.textContent = timer.days.toString();
     timerBlockHour.textContent = timer.hours.toString();
     timerBlockMinutes.textContent = timer.minutes.toString();
@@ -41,7 +40,7 @@ export const handleTimer = (deadline) => {
 
     const intevalId = setTimeout(start, 1000);
 
-    if (timer.timeRemaining <= 0) {
+    if (timer.timeRemaining <= 0 || isNaN(timer.days)) {
       timerBlockDays.textContent = '00';
       timerBlockHour.textContent = '00';
       timerBlockMinutes.textContent = '00';
@@ -76,7 +75,7 @@ export const handleTimer = (deadline) => {
     };
 
     const insideExludeRange = ([left, right], number) => {
-      return number > left && number < right;
+      return number >= left && number <= right;
     };
 
     for (const [number, numAndText, textSelector] of currentDate) {
