@@ -1,4 +1,33 @@
-export const handleTimer = (deadline) => {
+export const handleTimer = () => {
+
+  const changeBannerPromoText = () => {
+    const timerPromoText = document.querySelector('.item__text-notebook');
+    timerPromoText.textContent = 'ноутбуки - всегда отличный подарок';
+    timerPromoText.classList.add('item__text-notebook-changed');
+    const itemGallery = timerPromoText.closest('.item__gallery-notebook');
+    itemGallery.classList.add('item__gallery-notebook-changed');
+  };
+
+  const deadline = document.querySelector('.timer');
+  if (deadline) {
+    const hasDeadlineAttr = deadline.hasAttribute('data-timer-deadline');
+    if (hasDeadlineAttr) {
+      deadline.insertAdjacentHTML("beforeend", `
+        <p class="timer__title">До конца акции:</p>
+        <div class="timer__block">
+          <p><span class="timer__count timer-days-num">00&nbsp;</span><span class="timer__units  timer-days-text">дней</span></p>
+          <p><span class="timer__count timer-hours-num">00&nbsp;</span><span class="timer__units  timer-hours-text">часов</span></p>
+          <p><span class="timer__count timer-minutes-num">00&nbsp;</span><span class="timer__units  timer-minutes-text">минут</span></p>
+          <p><span class="timer__count timer-seconds-num">00&nbsp;</span><span class="timer__units  timer-seconds-text">секунд</span></p>
+        </div>
+      `);
+    }
+  } else {
+    changeBannerPromoText();
+    return;
+  }
+
+  const deadlineAttr = deadline.getAttribute('data-timer-deadline');
   const timerBlockDays = document.querySelector('.timer-days-num');
   const timerBlockHour = document.querySelector('.timer-hours-num');
   const timerBlockMinutes = document.querySelector('.timer-minutes-num');
@@ -10,9 +39,16 @@ export const handleTimer = (deadline) => {
   const textSeconds = document.querySelector('.timer-seconds-text');
 
   const getTimeRemaining = () => {
-    const dateStop = new Date(deadline).getTime();
+    const dateStop = new Date(deadlineAttr).getTime();
     const dateNow = Date.now();
-    const timeRemaining = dateStop - dateNow;
+
+    const timezoneoffset = Math.abs(new Date().getTimezoneOffset()) * 60 * 1000;
+    const myTimeZone = (+3) * 60 * 60 * 1000;
+
+    const myCurrentTime = dateNow - timezoneoffset + myTimeZone;
+
+    const timeRemaining = dateStop - myCurrentTime;
+    // const timeRemaining = dateStop - dateNow;
 
     const seconds = Math.floor(timeRemaining / 1000 % 60);
     const minutes = Math.floor(timeRemaining / 1000 / 60 % 60);
@@ -62,7 +98,6 @@ export const handleTimer = (deadline) => {
       }
     };
 
-
   const start = () => {
     const timer = getTimeRemaining();
     handleTextDeclension(timer);
@@ -84,11 +119,7 @@ export const handleTimer = (deadline) => {
       clearInterval(intevalId);
       const timer = document.querySelector('.timer');
       timer.remove();
-      const timerPromoText = document.querySelector('.item__text-notebook');
-      timerPromoText.textContent = 'ноутбуки - всегда отличный подарок';
-      timerPromoText.classList.add('item__text-notebook-changed');
-      const itemGallery = timerPromoText.closest('.item__gallery-notebook');
-      itemGallery.classList.add('item__gallery-notebook-changed');
+      changeBannerPromoText();
     }
   };
 
