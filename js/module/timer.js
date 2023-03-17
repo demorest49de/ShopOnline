@@ -1,5 +1,4 @@
 export const handleTimer = () => {
-
   const changeBannerPromoText = () => {
     const timerPromoText = document.querySelector('.item__text-notebook');
     timerPromoText.textContent = 'ноутбуки - всегда отличный подарок';
@@ -12,13 +11,17 @@ export const handleTimer = () => {
   if (deadline) {
     const hasDeadlineAttr = deadline.hasAttribute('data-timer-deadline');
     if (hasDeadlineAttr) {
-      deadline.insertAdjacentHTML("beforeend", `
+      deadline.insertAdjacentHTML('beforeend', `
         <p class="timer__title">До конца акции:</p>
         <div class="timer__block">
-          <p><span class="timer__count timer-days-num">00&nbsp;</span><span class="timer__units  timer-days-text">дней</span></p>
-          <p><span class="timer__count timer-hours-num">00&nbsp;</span><span class="timer__units  timer-hours-text">часов</span></p>
-          <p><span class="timer__count timer-minutes-num">00&nbsp;</span><span class="timer__units  timer-minutes-text">минут</span></p>
-          <p><span class="timer__count timer-seconds-num">00&nbsp;</span><span class="timer__units  timer-seconds-text">секунд</span></p>
+          <p><span class="timer__count timer-days-num">00&nbsp;
+          </span><span class="timer__units  timer-days-text">дней</span></p>
+          <p><span class="timer__count timer-hours-num">00&nbsp;
+          </span><span class="timer__units  timer-hours-text">часов</span></p>
+          <p><span class="timer__count timer-minutes-num">00&nbsp;
+          </span><span class="timer__units  timer-minutes-text">минут</span></p>
+          <p><span class="timer__count timer-seconds-num">00&nbsp;
+          </span><span class="timer__units  timer-seconds-text">секунд</span></p>
         </div>
       `);
     }
@@ -116,7 +119,7 @@ export const handleTimer = () => {
       timerBlockHour.textContent = '00';
       timerBlockMinutes.textContent = '00';
       timerBlockSeconds.textContent = '00';
-      clearInterval(intevalId);
+      clearTimeout(intevalId);
       const timer = document.querySelector('.timer');
       timer.remove();
       changeBannerPromoText();
