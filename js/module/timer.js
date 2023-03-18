@@ -1,5 +1,7 @@
 export const handleTimer = () => {
   const changeBannerPromoText = () => {
+    const timer = document.querySelector('.timer');
+    timer.remove();
     const timerPromoText = document.querySelector('.item__text-notebook');
     timerPromoText.textContent = 'ноутбуки - всегда отличный подарок';
     timerPromoText.classList.add('item__text-notebook-changed');
@@ -7,7 +9,7 @@ export const handleTimer = () => {
     itemGallery.classList.add('item__gallery-notebook-changed');
   };
 
-  const deadline = document.querySelector('.timer');
+  const deadline = document.querySelector('.item__timer.timer');
   if (deadline) {
     const hasDeadlineAttr = deadline.hasAttribute('data-timer-deadline');
     if (hasDeadlineAttr) {
@@ -43,6 +45,7 @@ export const handleTimer = () => {
 
   const getTimeRemaining = () => {
     const dateStop = new Date(deadlineAttr).getTime();
+    if(!dateStop) return false;
     const dateNow = Date.now();
 
     const timezoneoffset = Math.abs(new Date().getTimezoneOffset()) * 60 * 1000;
@@ -71,35 +74,28 @@ export const handleTimer = () => {
   const handleTextDeclension =
       ({days: day, hours: hour, minutes: min, seconds: sec}) => {
 
-        const timerArray = [day, hour, min, sec];
         const dayNumber = [[0], [1], [2, 4]];
 
-        // const ofDays = 'дней-день-дня';
-        // const ofHours = 'час-часов-часа';
-        // const ofMinutes = 'минут-минута-минуты';
-        // const ofSeconds = 'секунд-секунда-секунды';
+        const timerObject = [
+          {day, declension: 'дней-день-дня', textDays},
+          {hour, declension: 'час-часов-часа', textHour},
+          {min, declension: 'минут-минута-минуты', textMinutes},
+          {sec, declension: 'секунд-секунда-секунды', textSeconds},
 
-        const declension =
-            [
-              'дней-день-дня',
-              'час-часов-часа',
-              'минут-минута-минуты',
-              'секунд-секунда-секунды',
-            ];
+        ];
 
-        const output =
-            [
-              textDays,
-              textHour,
-              textMinutes,
-              textSeconds,
-            ];
+        const getArrayOfDigits = (number) => {
+          return Array.from()
+        };
 
-        const getLastDigit = (number) => number % 10;
-
-        for (let i = 0; i < timerArray.length; i++) {
-
-        }
+        // for (const {timeMeasure, declension, textDays} in getLastDigit) {
+        //   const arrayOfDigits = getLastDigit(timeMeasure);
+        //   console.log(' : ', arrayOfDigits);
+        //   if (arrayOfDigits.length > 1
+        //       && arrayOfDigits[arrayOfDigits.length - 1] === 1) {
+        //     continue;
+        //   }
+        // }
 
         const days = [[0, 0, 'дней'], [1, 1, 'день'],
           [2, 4, 'дня'], [5, 9, 'дней']];
@@ -119,6 +115,8 @@ export const handleTimer = () => {
         const insideExludeRange = ([left, right], number) =>
             number >= left && number <= right;
 
+        const getLastDigit = (number) => number % 10;
+
         for (const [number, numAndText, textSelector] of currentDate) {
           if (insideExludeRange(excludeRange, number)) return;
           const digit = getLastDigit(number);
@@ -132,11 +130,13 @@ export const handleTimer = () => {
 
   const start = () => {
     const timer = getTimeRemaining();
+    if(!timer) return changeBannerPromoText();
     handleTextDeclension(timer);
 
 
     timer.days === 0 ? timerBlockDays.closest('p').remove() :
-        timerBlockDays.textContent = timer.days.toString();
+
+    timerBlockDays.textContent = timer.days.toString();
     timerBlockHour.textContent = timer.hours.toString();
     timerBlockMinutes.textContent = timer.minutes.toString();
     timerBlockSeconds.textContent = timer.seconds.toString();
@@ -149,8 +149,6 @@ export const handleTimer = () => {
       timerBlockMinutes.textContent = '00';
       timerBlockSeconds.textContent = '00';
       clearTimeout(intevalId);
-      const timer = document.querySelector('.timer');
-      timer.remove();
       changeBannerPromoText();
     }
   };
