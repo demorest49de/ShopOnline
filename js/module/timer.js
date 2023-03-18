@@ -73,21 +73,16 @@ export const handleTimer = () => {
   };
 
   const handleTextDeclension = ({days: day, hours: hour, minutes: min, seconds: sec}) => {
-
     const dayNumber = [[0], [1], [2, 4]];
-
     const timerObject = [
       {timeMeasure: day, declension: 'дней-день-дня', text: textDays},
       {timeMeasure: hour, declension: 'часов-час-часа', text: textHour},
       {timeMeasure: min, declension: 'минут-минута-минуты', text: textMinutes},
       {timeMeasure: sec, declension: 'секунд-секунда-секунды', text: textSeconds},
     ];
-
     for (const {timeMeasure, declension, text} of timerObject) {
       const digits = getArrayOfDigits(timeMeasure);
-      if (digits.length > 1 && digits[digits.length - 2] === 1) {
-        continue;
-      }
+      if (digits.length > 1 && digits[digits.length - 2] === 1) continue;
       const last = digits.slice(-1)[0];
       const declensions = declension.split('-');
       for (let j = 0; j < dayNumber.length; j++) {
