@@ -1,4 +1,5 @@
 export const handleTimer = () => {
+
   const changeBannerPromoText = () => {
     const timer = document.querySelector('.timer');
     timer.remove();
@@ -63,77 +64,42 @@ export const handleTimer = () => {
 
 
     return {
-      days,
-      hours,
-      minutes,
-      seconds,
-      timeRemaining,
+      days, hours, minutes, seconds, timeRemaining,
     };
   };
 
-  const handleTextDeclension =
-      ({days: day, hours: hour, minutes: min, seconds: sec}) => {
+  const getArrayOfDigits = (number) => {
+    return Array.from(String(number), n => Number(n));
+  };
 
-        const dayNumber = [[0], [1], [2, 4]];
+  const handleTextDeclension = ({days: day, hours: hour, minutes: min, seconds: sec}) => {
 
-        const timerObject = [
-          {timeMeasure: day, declension: 'дней-день-дня', text: textDays},
-          {timeMeasure: hour, declension: 'час-часов-часа', text: textHour},
-          {timeMeasure: min, declension: 'минут-минута-минуты', text: textMinutes},
-          {timeMeasure: sec, declension: 'секунд-секунда-секунды', text: textSeconds},
+    const dayNumber = [[0], [1], [2, 4]];
 
-        ];
+    const timerObject = [
+      {timeMeasure: day, declension: 'дней-день-дня', text: textDays},
+      {timeMeasure: hour, declension: 'часов-час-часа', text: textHour},
+      {timeMeasure: min, declension: 'минут-минута-минуты', text: textMinutes},
+      {timeMeasure: sec, declension: 'секунд-секунда-секунды', text: textSeconds},
+    ];
 
-        const getArrayOfDigits = (number) => {
-          return Array.from(String(number), n => Number(n));
-        };
-
-        for (let i = 0; i < timerObject.length; i++) {
-          const {timeMeasure, declension, text} = timerObject[i];
-          const digits = getArrayOfDigits(timeMeasure);
-          if (digits.length > 1 && digits[digits.length - 2] === 1) {
-            continue;
-          }
-          const last = digits.slice(-1)[0];
-          const declensions = declension.split('-');
-          for (let j = 0; j < dayNumber.length; j++) {
-            const [x, y] = dayNumber[j];
-            if (!y && last === x) {
-              textDays.textContent;
-            }
-          }
+    for (const {timeMeasure, declension, text} of timerObject) {
+      const digits = getArrayOfDigits(timeMeasure);
+      if (digits.length > 1 && digits[digits.length - 2] === 1) {
+        continue;
+      }
+      const last = digits.slice(-1)[0];
+      const declensions = declension.split('-');
+      for (let j = 0; j < dayNumber.length; j++) {
+        const [x, y] = dayNumber[j];
+        if (!y && last === x) {
+          text.textContent = declensions[j];
+        } else if (last >= x && last <= y) {
+          text.textContent = declensions[j];
         }
-
-        const days = [[0, 0, 'дней'], [1, 1, 'день'],
-          [2, 4, 'дня'], [5, 9, 'дней']];
-        const hours = [[0, 0, 'часов'], [1, 1, 'час'],
-          [2, 4, 'часа'], [5, 9, 'часов']];
-        const minutes = [[0, 0, 'минут'], [1, 1, 'минута'],
-          [2, 4, 'минуты'], [5, 9, 'минут']];
-        const seconds = [[0, 0, 'секунд'], [1, 1, 'секунда'],
-          [2, 4, 'секунды'], [5, 9, 'секунд']];
-
-        const excludeRange = [11, 19];
-
-
-        const currentDate = [[day, days, textDays], [hour, hours, textHour],
-          [min, minutes, textMinutes], [sec, seconds, textSeconds]];
-
-        const insideExludeRange = ([left, right], number) =>
-            number >= left && number <= right;
-
-        const getLastDigit = (number) => number % 10;
-
-        for (const [number, numAndText, textSelector] of currentDate) {
-          if (insideExludeRange(excludeRange, number)) return;
-          const digit = getLastDigit(number);
-          for (const [left, right, text] of numAndText) {
-            if (digit >= left && digit <= right) {
-              textSelector.textContent = text;
-            }
-          }
-        }
-      };
+      }
+    }
+  };
 
   const start = () => {
     const timer = getTimeRemaining();
@@ -141,17 +107,16 @@ export const handleTimer = () => {
     handleTextDeclension(timer);
 
 
-    timer.days === 0 ? timerBlockDays.closest('p').remove() :
-        timerBlockDays.textContent = `${timer.days}`;
+    timer.days === 0 ? timerBlockDays.closest('p').remove() : timerBlockDays.textContent = `${timer.days}`;
 
-    timerBlockHour.textContent = timer.hours < 9 ? `0${timer.hours}` : `${timer.hours}`;
-    timerBlockMinutes.textContent = timer.minutes < 9 ? `0${timer.minutes}` : `${timer.minutes}`;
-    timerBlockSeconds.textContent = timer.seconds < 9 ? `0${timer.seconds}` : `${timer.seconds}`;
+    timerBlockHour.textContent = timer.hours < 10 ? `0${timer.hours}` : `${timer.hours}`;
+    timerBlockMinutes.textContent = timer.minutes < 10 ? `0${timer.minutes}` : `${timer.minutes}`;
+    timerBlockSeconds.textContent = timer.seconds < 10 ? `0${timer.seconds}` : `${timer.seconds}`;
 
 
     const intevalId = setTimeout(start, 1000);
 
-    if (timer.timeRemaining <= 0 || isNaN(timer.days)) {
+    if (timer.timeRemaining <= 0) {
 
       clearTimeout(intevalId);
       changeBannerPromoText();
