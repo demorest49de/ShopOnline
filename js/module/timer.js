@@ -73,10 +73,19 @@ export const handleTimer = () => {
 
         const timerArray = [day, hour, min, sec];
         const dayNumber = [[0], [1], [2, 4]];
-        const ofDays = 'дней-день-дня';
-        const ofHours = 'час-часов-часа';
-        const ofMinutes = 'минут-минута-минуты';
-        const ofSeconds = 'секунд-секунда-секунды';
+
+        // const ofDays = 'дней-день-дня';
+        // const ofHours = 'час-часов-часа';
+        // const ofMinutes = 'минут-минута-минуты';
+        // const ofSeconds = 'секунд-секунда-секунды';
+
+        const declension =
+            [
+              'дней-день-дня',
+              'час-часов-часа',
+              'минут-минута-минуты',
+              'секунд-секунда-секунды',
+            ];
 
         const output =
             [
@@ -86,24 +95,26 @@ export const handleTimer = () => {
               textSeconds,
             ];
 
-        fore
+        const getLastDigit = (number) => number % 10;
+
+        for (let i = 0; i < timerArray.length; i++) {
+
+        }
 
         const days = [[0, 0, 'дней'], [1, 1, 'день'],
           [2, 4, 'дня'], [5, 9, 'дней']];
-
         const hours = [[0, 0, 'часов'], [1, 1, 'час'],
           [2, 4, 'часа'], [5, 9, 'часов']];
         const minutes = [[0, 0, 'минут'], [1, 1, 'минута'],
           [2, 4, 'минуты'], [5, 9, 'минут']];
         const seconds = [[0, 0, 'секунд'], [1, 1, 'секунда'],
           [2, 4, 'секунды'], [5, 9, 'секунд']];
+
         const excludeRange = [11, 19];
+
 
         const currentDate = [[day, days, textDays], [hour, hours, textHour],
           [min, minutes, textMinutes], [sec, seconds, textSeconds]];
-
-
-        const getLastDigit = (number) => number % 10;
 
         const insideExludeRange = ([left, right], number) =>
             number >= left && number <= right;
