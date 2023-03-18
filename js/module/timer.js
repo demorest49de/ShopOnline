@@ -69,46 +69,55 @@ export const handleTimer = () => {
   };
 
   const handleTextDeclension =
-    ({days: day, hours: hour, minutes: min, seconds: sec}) => {
+      ({days: day, hours: hour, minutes: min, seconds: sec}) => {
 
-      const timerArray = [day, hour, min, sec];
+        const timerArray = [day, hour, min, sec];
+        const dayNumber = [[0], [1], [2, 4]];
+        const ofDays = 'дней-день-дня';
+        const ofHours = 'час-часов-часа';
+        const ofMinutes = 'минут-минута-минуты';
+        const ofSeconds = 'секунд-секунда-секунды';
 
-      const dayNumber = [[0], [1], [2, 4]];
-      const ofDays = 'дней-день-дня';
-      const ofHours = 'час-часов-часа';
-      const ofMinutes = 'минут-минута-минуты';
-      const ofSeconds = 'секунд-секунда-секунды';
+        const output =
+            [
+              textDays,
+              textHour,
+              textMinutes,
+              textSeconds,
+            ];
 
-      const days = [[0, 0, 'дней'], [1, 1, 'день'],
-        [2, 4, 'дня'], [5, 9, 'дней']];
+        fore
 
-      const hours = [[0, 0, 'часов'], [1, 1, 'час'],
-        [2, 4, 'часа'], [5, 9, 'часов']];
-      const minutes = [[0, 0, 'минут'], [1, 1, 'минута'],
-        [2, 4, 'минуты'], [5, 9, 'минут']];
-      const seconds = [[0, 0, 'секунд'], [1, 1, 'секунда'],
-        [2, 4, 'секунды'], [5, 9, 'секунд']];
-      const excludeRange = [11, 19];
+        const days = [[0, 0, 'дней'], [1, 1, 'день'],
+          [2, 4, 'дня'], [5, 9, 'дней']];
 
-      const currentDate = [[day, days, textDays], [hour, hours, textHour],
-        [min, minutes, textMinutes], [sec, seconds, textSeconds]];
+        const hours = [[0, 0, 'часов'], [1, 1, 'час'],
+          [2, 4, 'часа'], [5, 9, 'часов']];
+        const minutes = [[0, 0, 'минут'], [1, 1, 'минута'],
+          [2, 4, 'минуты'], [5, 9, 'минут']];
+        const seconds = [[0, 0, 'секунд'], [1, 1, 'секунда'],
+          [2, 4, 'секунды'], [5, 9, 'секунд']];
+        const excludeRange = [11, 19];
+
+        const currentDate = [[day, days, textDays], [hour, hours, textHour],
+          [min, minutes, textMinutes], [sec, seconds, textSeconds]];
 
 
-      const getLastDigit = (number) => number % 10;
+        const getLastDigit = (number) => number % 10;
 
-      const insideExludeRange = ([left, right], number) =>
-        number >= left && number <= right;
+        const insideExludeRange = ([left, right], number) =>
+            number >= left && number <= right;
 
-      for (const [number, numAndText, textSelector] of currentDate) {
-        if (insideExludeRange(excludeRange, number)) return;
-        const digit = getLastDigit(number);
-        for (const [left, right, text] of numAndText) {
-          if (digit >= left && digit <= right) {
-            textSelector.textContent = text;
+        for (const [number, numAndText, textSelector] of currentDate) {
+          if (insideExludeRange(excludeRange, number)) return;
+          const digit = getLastDigit(number);
+          for (const [left, right, text] of numAndText) {
+            if (digit >= left && digit <= right) {
+              textSelector.textContent = text;
+            }
           }
         }
-      }
-    };
+      };
 
   const start = () => {
     const timer = getTimeRemaining();
@@ -116,7 +125,7 @@ export const handleTimer = () => {
 
 
     timer.days === 0 ? timerBlockDays.closest('p').remove() :
-      timerBlockDays.textContent = timer.days.toString();
+        timerBlockDays.textContent = timer.days.toString();
     timerBlockHour.textContent = timer.hours.toString();
     timerBlockMinutes.textContent = timer.minutes.toString();
     timerBlockSeconds.textContent = timer.seconds.toString();
