@@ -45,7 +45,7 @@ export const handleTimer = () => {
 
   const getTimeRemaining = () => {
     const dateStop = new Date(deadlineAttr).getTime();
-    if(!dateStop) return false;
+    if (!dateStop) return false;
     const dateNow = Date.now();
 
     const timezoneoffset = Math.abs(new Date().getTimezoneOffset()) * 60 * 1000;
@@ -77,25 +77,32 @@ export const handleTimer = () => {
         const dayNumber = [[0], [1], [2, 4]];
 
         const timerObject = [
-          {day, declension: 'дней-день-дня', textDays},
-          {hour, declension: 'час-часов-часа', textHour},
-          {min, declension: 'минут-минута-минуты', textMinutes},
-          {sec, declension: 'секунд-секунда-секунды', textSeconds},
+          {timeMeasure: day, declension: 'дней-день-дня', text: textDays},
+          {timeMeasure: hour, declension: 'час-часов-часа', text: textHour},
+          {timeMeasure: min, declension: 'минут-минута-минуты', text: textMinutes},
+          {timeMeasure: sec, declension: 'секунд-секунда-секунды', text: textSeconds},
 
         ];
 
         const getArrayOfDigits = (number) => {
-          return Array.from()
+          return Array.from(String(number), n => Number(n));
         };
 
-        // for (const {timeMeasure, declension, textDays} in getLastDigit) {
-        //   const arrayOfDigits = getLastDigit(timeMeasure);
-        //   console.log(' : ', arrayOfDigits);
-        //   if (arrayOfDigits.length > 1
-        //       && arrayOfDigits[arrayOfDigits.length - 1] === 1) {
-        //     continue;
-        //   }
-        // }
+        for (let i = 0; i < timerObject.length; i++) {
+          const {timeMeasure, declension, text} = timerObject[i];
+          const digits = getArrayOfDigits(timeMeasure);
+          if (digits.length > 1 && digits[digits.length - 2] === 1) {
+            continue;
+          }
+          const last = digits.slice(-1)[0];
+          const declensions = declension.split('-');
+          for (let j = 0; j < dayNumber.length; j++) {
+            const [x, y] = dayNumber[j];
+            if (!y && last === x) {
+              textDays.textContent;
+            }
+          }
+        }
 
         const days = [[0, 0, 'дней'], [1, 1, 'день'],
           [2, 4, 'дня'], [5, 9, 'дней']];
@@ -130,24 +137,22 @@ export const handleTimer = () => {
 
   const start = () => {
     const timer = getTimeRemaining();
-    if(!timer) return changeBannerPromoText();
+    if (!timer) return changeBannerPromoText();
     handleTextDeclension(timer);
 
 
     timer.days === 0 ? timerBlockDays.closest('p').remove() :
+        timerBlockDays.textContent = `${timer.days}`;
 
-    timerBlockDays.textContent = timer.days.toString();
-    timerBlockHour.textContent = timer.hours.toString();
-    timerBlockMinutes.textContent = timer.minutes.toString();
-    timerBlockSeconds.textContent = timer.seconds.toString();
+    timerBlockHour.textContent = timer.hours < 9 ? `0${timer.hours}` : `${timer.hours}`;
+    timerBlockMinutes.textContent = timer.minutes < 9 ? `0${timer.minutes}` : `${timer.minutes}`;
+    timerBlockSeconds.textContent = timer.seconds < 9 ? `0${timer.seconds}` : `${timer.seconds}`;
+
 
     const intevalId = setTimeout(start, 1000);
 
     if (timer.timeRemaining <= 0 || isNaN(timer.days)) {
-      timerBlockDays.textContent = '00';
-      timerBlockHour.textContent = '00';
-      timerBlockMinutes.textContent = '00';
-      timerBlockSeconds.textContent = '00';
+
       clearTimeout(intevalId);
       changeBannerPromoText();
     }
