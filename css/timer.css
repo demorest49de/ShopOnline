@@ -16,22 +16,28 @@
 }
 
 .timer__block  .timer__count{
-    text-align: center;
-    letter-spacing: 5px;
+    display: flex;
+    justify-self: end;
+    letter-spacing: 2px;
     width: 88px;
-    font-family: AzeretMono;
+    /*font-family: AzeretMono;*/
 }
 
 .timer__block  .timer__units{
-    text-align: center;
+    display: flex;
+    justify-self: start;
+}
+
+.timer__block p:nth-child(1) .timer__count{
+    max-width: 65px;
 }
 
 .timer__block  p:nth-last-child(1) .timer__units{
-    min-width: 150px;
+    min-width: 145px;
 }
 
 .timer__block  p:nth-last-child(2) .timer__units{
-    min-width: 131px;
+    min-width: 130px;
 }
 
 .timer__block  p:nth-last-child(3) .timer__units{
