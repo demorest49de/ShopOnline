@@ -17,13 +17,13 @@ export const handleTimer = () => {
             deadline.insertAdjacentHTML('beforeend', `
             <p class="timer__title">До конца акции:</p>
             <div class="timer__block">
-              <p><span class="timer__count timer-days-num">00&nbsp;
+              <p><span class="timer__count timer-days-num">00
               </span><span class="timer__units  timer-days-text">дней</span></p>
-              <p><span class="timer__count timer-hours-num">00&nbsp;
+              <p><span class="timer__count timer-hours-num">00
               </span><span class="timer__units  timer-hours-text">часов</span></p>
-              <p><span class="timer__count timer-minutes-num">00&nbsp;
+              <p><span class="timer__count timer-minutes-num">00
               </span><span class="timer__units  timer-minutes-text">минут</span></p>
-              <p><span class="timer__count timer-seconds-num">00&nbsp;
+              <p><span class="timer__count timer-seconds-num">00
               </span><span class="timer__units  timer-seconds-text">секунд</span></p>
             </div>
           `);
@@ -102,8 +102,8 @@ export const handleTimer = () => {
         handleTextDeclension(timer);
 
 
-        timer.days === 0 ? timerBlockDays.closest('p').remove() : timerBlockDays.textContent = `${timer.days}`;
-
+        timer.days === 0 ? timerBlockDays.closest('p').remove() : (timerBlockDays.textContent = `${timer.days}`);
+        if (timer.days < 10) timerBlockDays.classList.add('timer__count_less-ten');
         timerBlockHour.textContent = timer.hours < 10 ? `0${timer.hours}` : `${timer.hours}`;
         timerBlockMinutes.textContent = timer.minutes < 10 ? `0${timer.minutes}` : `${timer.minutes}`;
         timerBlockSeconds.textContent = timer.seconds < 10 ? `0${timer.seconds}` : `${timer.seconds}`;

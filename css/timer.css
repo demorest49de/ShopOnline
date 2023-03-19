@@ -12,24 +12,23 @@
 .timer__block p{
     display: flex;
     align-items: baseline;
-    gap: 5px;
+    gap: 7px;
 }
 
 .timer__block  .timer__count{
     display: flex;
-    justify-self: end;
+    justify-self: center;
     letter-spacing: 2px;
     width: 88px;
-    /*font-family: AzeretMono;*/
+}
+
+.timer__count_less-ten{
+    max-width: 38px;
 }
 
 .timer__block  .timer__units{
     display: flex;
     justify-self: start;
-}
-
-.timer__block p:nth-child(1) .timer__count{
-    max-width: 65px;
 }
 
 .timer__block  p:nth-last-child(1) .timer__units{
@@ -41,15 +40,12 @@
 }
 
 .timer__block  p:nth-last-child(3) .timer__units{
-    min-width: 103px;
+    min-width: 97px;
 }
 
 .timer__block  p:nth-last-child(4) .timer__units{
-    min-width: 90px;
+    min-width: 81px;
 }
-
-
-
 
 .timer__title {
     font-size: 16px;
@@ -83,7 +79,49 @@
     }
 
     .timer__block {
-        gap: 20px;
+        gap: 10px;
+    }
+
+    .timer__block p{
+        gap: 10px;
+    }
+
+    .timer__block .timer__count{
+        width: unset;
+        min-width: 63px;
+    }
+
+    .timer__count.timer__count_less-ten{
+        min-width: 32px;
+    }
+
+    .timer__block  p:nth-last-child(1) .timer__units{
+        min-width: 96px;
+    }
+
+    .timer__block  p:nth-last-child(2) .timer__units{
+        min-width: 89px;
+    }
+
+    .timer__block  p:nth-last-child(3) .timer__units{
+        min-width: 65px;
+    }
+
+    .timer__block  p:nth-last-child(4) .timer__units{
+        min-width: 56px;
+    }
+
+    .timer__block{
+        gap: 5px;
+    }
+
+    .timer__block .timer__count{
+        width: unset;
+        min-width: 59px;
+    }
+
+    .timer__count.timer__count_less-ten{
+        min-width: 22px;
     }
 
     .timer__count {
@@ -97,7 +135,7 @@
     }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 710px) {
     .timer__title {
         font-size: 8px;
         line-height: 10.6px;
@@ -107,6 +145,31 @@
     .timer__block {
         display: flex;
         gap: 8px;
+    }
+
+    .timer__block .timer__count{
+        width: unset;
+        min-width: 33px;
+    }
+
+    .timer__count.timer__count_less-ten{
+        min-width: 15px;
+    }
+
+    .timer__block  p:nth-last-child(1) .timer__units{
+        min-width: 60px;
+    }
+
+    .timer__block  p:nth-last-child(2) .timer__units{
+        min-width: 55px;
+    }
+
+    .timer__block  p:nth-last-child(3) .timer__units{
+        min-width: 40px;
+    }
+
+    .timer__block  p:nth-last-child(4) .timer__units{
+        min-width: 27px;
     }
 
     .item__text-notebook-changed {
@@ -121,5 +184,17 @@
     .timer__units {
         font-size: 12px;
         line-height: 15.6px;
+    }
+}
+
+@media (max-width: 462px) {
+    .timer{
+        padding-bottom: 15px;
+    }
+
+    .timer__block{
+        flex-wrap: wrap;
+        max-width: 235px;
+        justify-content: center;
     }
 }
