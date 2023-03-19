@@ -8,21 +8,26 @@
 .timer__block {
     display: flex;
     justify-content: center;
-    gap: 0px;
+    gap: 20px;
 }
 
 .timer__block p{
-    flex-basis: 220px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    min-width: 90px;
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    justify-content: space-between;
 }
 
-.timer__count, .timer__units{
-    flex-basis: 120px;
-    flex-grow: 0;
-    flex-shrink: 0;
+.timer__block  .timer__count{
+    min-width: 85px;
+    text-align: end;
 }
+
+.timer__block  .timer__units{
+    min-width: 150px;
+    text-align: start;
+}
+
 
 .timer__title {
     font-size: 16px;
