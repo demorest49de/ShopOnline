@@ -26,13 +26,6 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: "AzeretMono";
-    src: url("../font/AzeretMono-Bold.ttf") format("truetype");
-    font-weight: 700;
-    font-display: swap;
-}
-
 .container {
     max-width: 1920px;
     margin:  0 auto;
