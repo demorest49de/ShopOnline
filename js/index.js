@@ -1,4 +1,4 @@
-import {handleTimer} from './module/timer.js';
+import {handleTimer} from './module/shopOnline/timer.js';
 
 {
   const init = () => {

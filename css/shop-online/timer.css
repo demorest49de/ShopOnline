@@ -194,7 +194,8 @@
 
     .timer__block{
         flex-wrap: wrap;
-        max-width: 235px;
-        justify-content: center;
+        max-width: 181px;
+        justify-content: flex-start;
+        padding-left: 50px;
     }
 }

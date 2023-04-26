@@ -2,8 +2,10 @@
 @import "css/basic.css";
 @import "css/global.css";
 @import "css/var.css";
-@import "css/header.css";
-@import "css/main.css";
-@import "css/item.css";
-@import "css/timer.css";
-@import "css/footer.css";
+@import "css/shop-online/header.css";
+@import "css/shop-online/main.css";
+@import "css/shop-online/item.css";
+@import "css/shop-online/timer.css";
+@import "css/shop-online/footer.css";
+
+@import "css/blog/blog.css";

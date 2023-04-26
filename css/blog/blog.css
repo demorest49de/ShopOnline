@@ -1,0 +1,40 @@
+.blog{
+    padding-top: 172px;
+    padding-bottom: 147px;
+}
+
+.blog__container{
+    padding: 0 243px;
+}
+
+.blog__list{
+    display: grid;
+    grid-template-columns: repeat(2, 645px);
+    grid-template-rows: repeat(6, 195px);
+    column-gap: 143px;
+    row-gap: 50px;
+    margin-bottom: 100px;
+}
+
+.blog__item{
+    border: 1px solid black;
+}
+
+.blog__link{
+    width: 100%;
+    height: 100%;
+}
+
+.blog__subtitle{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 130%;
+    color: #2D2D2D;
+}
+
+.blog__pagination{
+    max-width: 254px;
+    border: 1px solid black;
+    max-height: 37px;
+    margin: 0 auto;
+}
