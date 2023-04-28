@@ -49,7 +49,7 @@ export const loadItemsHandler = ($) => {
                         <h2 class="article__subtitle">
                             ${item.title}
                         </h2>
-                        <div class="article__underblock">
+                        <div class="article__subblock">
                             <div class="article__datetime">
                                 <span class="article__date">${strDate}</span>
                                 <span class="article__time">${strTime}</span>
