@@ -1,6 +1,8 @@
+import {loadItemsHandler} from "./module/blog/load.js";
+
 {
     const blogInit = (selectorApp) => {
-        // renderBlog = (selectorApp);
+        loadItemsHandler();
     };
 
     window.blogInit = blogInit;

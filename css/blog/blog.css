@@ -17,7 +17,7 @@
 }
 
 .blog__article {
-    /*background: linear-gradient(90deg, rgba(131,58,180, .8) 0%, rgba(29,253,168, .8) 50%, rgba(252,176,69, .8) 100%);*/
+    background: linear-gradient(90deg, rgba(131,58,180, .8) 0%, rgba(29,253,168, .8) 50%, rgba(252,176,69, .8) 100%);
 }
 
 .article__link {
