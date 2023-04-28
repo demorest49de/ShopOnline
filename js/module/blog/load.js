@@ -1,4 +1,4 @@
-export const loadItemsHandler = () => {
+export const loadItemsHandler = ($) => {
     const loadArticles = async (callback) => {
         const result = await fetch('https://gorest.co.in/public-api/posts?per_page=12');
 
@@ -29,10 +29,11 @@ export const loadItemsHandler = () => {
     }
 
     const renderArticles = (data) => {
-        console.log(' : ', data.data);
 
         const articlesHTML = data.data.map((item, index) => {
-            console.log(' : ', item, index);
+
+            // console.log(' : ', item, index);
+
             const strDate = getFormattedDate();
             const strTime = getFormattedTime();
             //
@@ -42,7 +43,7 @@ export const loadItemsHandler = () => {
              <article class="blog__article article">
                 <a class="article__link" href="article.html?id=${item.id}">
                     <figure class="article__image">
-                        <img src="./img/blog/${index}.png" alt="замшевые ботинки">
+                        <img src="./img/blog/${index}.png" alt="${item.title}">
                     </figure>
                     <div class="article__block">
                         <h2 class="article__subtitle">
@@ -68,9 +69,13 @@ export const loadItemsHandler = () => {
                 </a>
              </article>
         `;
-            console.log(' : ', article);
+
+            // console.log(' : ', article);
+
             return article;
         });
+        console.log(' : ',articlesHTML);
+        $.blogList.append(...articlesHTML);
     };
 
     loadArticles(renderArticles);
