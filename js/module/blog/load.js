@@ -49,21 +49,24 @@ export const loadItemsHandler = ($) => {
                         <h2 class="article__subtitle">
                             ${item.title}
                         </h2>
-                        <div class="article__datetime">
-                            <span class="article__date">${strDate}</span>
-                            <span class="article__time">${strTime}</span>
-                        </div>
-                        <div class="article__views-comments">
-                            <span class="article__subblock">
-                            <svg class="article__icon" xmlns="http://www.w3.org/2000/svg">
-                                <use href="./img/blog/views-chat.svg#views"></use>
-                            </svg>
-                                ${getRandomIntInclusive(1, 3)}.${getRandomIntInclusive(0, 9)}K</span>
-                            <span class="article__subblock">
-                            <svg class="article__icon" xmlns="http://www.w3.org/2000/svg">
-                                <use href="./img/blog/views-chat.svg#chat"></use>
-                            </svg>
-                                ${getRandomIntInclusive(13, 200)}</span>
+                        <div class="article__underblock">
+                            <div class="article__datetime">
+                                <span class="article__date">${strDate}</span>
+                                <span class="article__time">${strTime}</span>
+                            </div>
+                        
+                            <div class="article__views-comments">
+                                <span class="article__text-block">
+                                <svg class="article__icon" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="./img/blog/views-chat.svg#views"></use>
+                                </svg>
+                                    ${getRandomIntInclusive(1, 3)}.${getRandomIntInclusive(0, 9)}K</span>
+                                <span class="article__text-block">
+                                <svg class="article__icon" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="./img/blog/views-chat.svg#chat"></use>
+                                </svg>
+                                    ${getRandomIntInclusive(13, 200)}</span>
+                            </div>
                         </div>
                     </div>
                 </a>
