@@ -7,17 +7,34 @@ export const loadItemsHandler = () => {
         callback(data);
     };
 
+    const getFormattedDate = () => {
+        var dt_options = {day: `numeric`, month: `long`, year: `numeric`};
+        var today = new Date();
+        var strDate = today.toLocaleDateString("ru-RU", dt_options).split(" ").slice(0, -1);
+        const [monthDate, monthName, yearNumber] = strDate;
+        return `${monthDate} ${monthName} ${yearNumber}, `;
+    };
+
+    const getFormattedTime = () => {
+        var dt_options = {hour: `2-digit`, minute: `2-digit`};
+        var today = new Date();
+        var strTime = today.toLocaleTimeString("ru-RU", dt_options).split(" ");
+        return strTime.toString();
+    };
+
     const renderArticles = (data) => {
         console.log(' : ', data.data);
 
         const articlesHTML = data.data.map((item, index) => {
-            console.log(' : ',item, index);
+            console.log(' : ', item, index);
+            const strDate = getFormattedDate();
+            const strTime = getFormattedTime();
             //
             const article = document.createElement('article');
             article.classList.add('blog__article', 'article');
             article.innerHTML = `
              <article class="blog__article article">
-                <a class="article__link">
+                <a class="article__link" href="article.html?id=${item.id}">
                     <figure class="article__image">
                         <img src="./img/blog/${index}.png" alt="замшевые ботинки">
                     </figure>
@@ -26,8 +43,8 @@ export const loadItemsHandler = () => {
                             ${item.title}
                         </h2>
                         <div class="article__datetime">
-                            <span class="article__date">22 октября 2021, </span>
-                            <span class="article__time">12:45</span>
+                            <span class="article__date">${strDate}</span>
+                            <span class="article__time">${strTime}</span>
                         </div>
                         <div class="article__views-comments">
                             <span class="article__subblock">
@@ -45,7 +62,7 @@ export const loadItemsHandler = () => {
                 </a>
              </article>
         `;
-            console.log(' : ',article);
+            console.log(' : ', article);
             return article;
         });
     };
