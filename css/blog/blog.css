@@ -186,6 +186,7 @@
 @media (max-width: 410px) {
     .blog__list{
         grid-template-columns: repeat(auto-fill, minmax(280px, 645px));
+        row-gap: 15px;
     }
     .article__subtitle{
         max-width: 190px;
