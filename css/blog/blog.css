@@ -94,13 +94,15 @@
     line-height: 130%;
     color: #2D2D2D;
     margin-bottom: 13px;
-    max-height: 118px;
+    height: 175px;
+    overflow: hidden;
 }
 
 .article__block {
     display: flex;
     flex-direction: column;
     margin-left: 30px;
+    max-height: 195px;
 }
 
 .article__subblock {
@@ -218,6 +220,7 @@
     .article__block {
         margin-left: 15px;
         min-width: 280px;
+        max-height: 100px;
     }
 
     .article__date,
