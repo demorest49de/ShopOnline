@@ -22,6 +22,12 @@ export const loadItemsHandler = () => {
         return strTime.toString();
     };
 
+    const getRandomIntInclusive = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+    }
+
     const renderArticles = (data) => {
         console.log(' : ', data.data);
 
@@ -51,12 +57,12 @@ export const loadItemsHandler = () => {
                             <svg class="article__icon" xmlns="http://www.w3.org/2000/svg">
                                 <use href="./img/blog/views-chat.svg#views"></use>
                             </svg>
-                                1.2K</span>
+                                ${getRandomIntInclusive(1, 3)}.${getRandomIntInclusive(0, 9)}K</span>
                             <span class="article__subblock">
                             <svg class="article__icon" xmlns="http://www.w3.org/2000/svg">
                                 <use href="./img/blog/views-chat.svg#chat"></use>
                             </svg>
-                                0</span>
+                                ${getRandomIntInclusive(13, 200)}</span>
                         </div>
                     </div>
                 </a>
