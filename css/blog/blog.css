@@ -109,6 +109,24 @@
     fill: #3670C7;
 }
 
+.pagination__pages{
+    display: flex;
+    column-gap: 6px;
+    color:  #2D2D2D;
+    text-align: center;
+    justify-items: center;
+}
+
+.pagination__link{
+    width: 36px;
+    height: 36px;
+    border: 2px solid #2D2D2D;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+}
+
 
 @media (max-width: 1918px) {
     .blog__list {

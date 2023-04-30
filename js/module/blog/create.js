@@ -1,24 +1,36 @@
-const fulfillPagination = (pagination) => {
 
-    pagination.innerHTML = `
+const createPageLink = (pagination) => {
+
+    const pages = document.createElement('div');
+    pages.classList.add('pagination__pages');
+
+    for (let i = 0; i < 3; i++) {
+        const pageLink = document.createElement('a');
+        pageLink.classList.add('pagination__link');
+        pageLink.href = `#`;
+        pageLink.textContent = `${i + 1}`;
+        pages.append(pageLink);
+    }
+
+    pagination.append(pages);
+};
+
+const createArrows = (pagination) => {
+
+    pagination.insertAdjacentHTML('afterbegin',
+        `
         <svg class="pagination__left-arrow" xmlns="http://www.w3.org/2000/svg"><use href="./img/blog/arrows.svg#left"></use></svg>
-        <svg class="pagination__right-arrow" xmlns="http://www.w3.org/2000/svg"><use href="./img/blog/arrows.svg#right"></use></svg>
-    `;
-    const leftArrow = document.createElement('svg');
-    leftArrow.classList.add('pagination__left-arrow');
-    leftArrow.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    const useLeftArrow = document.createElement('use');
-    useLeftArrow.setAttribute('href',`./img/blog/arrows.svg#left`);
-    leftArrow.append(useLeftArrow);
 
-    const rightArrow = document.createElement('svg');
-    rightArrow.classList.add('pagination__right-arrow');
-    rightArrow.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    const useRightArrow = document.createElement('use');
-    useRightArrow.setAttribute('href',`./img/blog/arrows.svg#right`);
-    rightArrow.append(useRightArrow);
+        `
+        );
 
-    pagination.append(leftArrow, rightArrow);
+    createPageLink(pagination);
+    pagination.insertAdjacentHTML('beforeend',
+        `
+            <svg class="pagination__right-arrow" xmlns="http://www.w3.org/2000/svg"><use href="./img/blog/arrows.svg#right"></use></svg>
+        `
+    );
+
 };
 
 export const createMain = () => {
@@ -37,7 +49,7 @@ export const createMain = () => {
     blogList.classList.add('blog__list');
     const pagination = document.createElement('div');
     pagination.classList.add('blog__pagination', `pagination`);
-    fulfillPagination(pagination);
+    createArrows(pagination);
     container.append(blogList, pagination);
     return {main, blogList, blogPagination: pagination};
 };
