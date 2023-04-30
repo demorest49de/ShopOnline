@@ -1,13 +1,15 @@
-import {loadItemsHandler} from "./module/blog/load.js";
+import {loadItemsHandler, paginationHandler} from "./module/blog/load.js";
 import {renderBlog} from './module/blog/render.js';
-import {initVars} from './module/blog/initVars.js';
+
 
 {
     const blogInit = (selectorApp) => {
         const data = renderBlog(selectorApp);
-        console.log(' : ',data);
-        const {blogPagination, main, blogList, pageLinks} = data;
-        const $ = {blogPagination, main, blogList, pageLinks};
+        console.log(' : ', data);
+        const {blogPagination, main, blogList, pageElems} = data;
+        // const {links, pageList} = pageElems;
+        // console.log(' : ',links);
+        const $ = {blogPagination, main, blogList, pageElems};
         loadItemsHandler($);
         paginationHandler($);
     };

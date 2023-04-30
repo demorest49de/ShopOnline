@@ -22,7 +22,6 @@
     display: grid;
     grid-auto-flow: column;
     color: #8F8F8F;
-    /*height: 100%;*/
 }
 
 .article__image {
@@ -121,16 +120,17 @@
     height: 36px;
     border: 2px solid #2D2D2D;
     border-radius: 4px;
-    display: flex;
+    display: grid;
     justify-content: center;
-    align-items: center;
+    align-content: center;
 }
 
 .pagination__link{
     font-weight: 700;
     font-size: 16px;
     line-height: 130%;
-    text-align: center;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -243,6 +243,7 @@
 
     .article__subtitle {
         max-width: 190px;
+        margin-bottom: 0;
     }
 }
 

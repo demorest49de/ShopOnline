@@ -1,6 +1,6 @@
 export const loadItemsHandler = ($) => {
     const loadArticles = async (callback) => {
-        const result = await fetch('https://gorest.co.in/public-api/posts?per_page=12');
+        const result = await fetch('https://gorest.co.in/public-api/posts?page=1&per_page=12');
 
         const data = await result.json();
 
@@ -26,7 +26,7 @@ export const loadItemsHandler = ($) => {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
-    }
+    };
 
     const renderArticles = (data) => {
 
@@ -82,4 +82,13 @@ export const loadItemsHandler = ($) => {
     };
 
     loadArticles(renderArticles);
+};
+
+export const paginationHandler = ($) => {
+    console.log(' : ', $.pageElems.links);
+    $.pageElems.pageList.addEventListener('click', ({target}) => {
+        if(target.closest('.pag')){
+
+        }
+    });
 };
