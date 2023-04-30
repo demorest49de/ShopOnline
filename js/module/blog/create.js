@@ -1,4 +1,3 @@
-
 const createPageLink = (pagination) => {
 
     const pages = document.createElement('nav');
@@ -12,34 +11,27 @@ const createPageLink = (pagination) => {
                  <li class="pagination__item"><a class="pagination__link" href="#">3</a></li>
              </ul>
         `);
-//
-//     for (let i = 0; i < 3; i++) {
-//         const pageLink = document.createElement('a');
-//         pageLink.classList.add('pagination__link');
-//         pageLink.href = `#`;
-//         pageLink.textContent = `${i + 1}`;
-//         pages.append(pageLink);
-//     }
-//
     pagination.append(pages);
+    return pages.querySelectorAll('.pagination__item .pagination__link');
 };
 
-const createArrows = (pagination) => {
+const addPagination = (pagination) => {
 
     pagination.insertAdjacentHTML('afterbegin',
         `
         <svg class="pagination__left-arrow" xmlns="http://www.w3.org/2000/svg"><use href="./img/blog/arrows.svg#left"></use></svg>
 
         `
-        );
+    );
 
-    createPageLink(pagination);
+    const links = createPageLink(pagination);
+
     pagination.insertAdjacentHTML('beforeend',
         `
             <svg class="pagination__right-arrow" xmlns="http://www.w3.org/2000/svg"><use href="./img/blog/arrows.svg#right"></use></svg>
         `
     );
-
+    return links;
 };
 
 export const createMain = () => {
@@ -58,7 +50,7 @@ export const createMain = () => {
     blogList.classList.add('blog__list');
     const pagination = document.createElement('div');
     pagination.classList.add('blog__pagination', `pagination`);
-    createArrows(pagination);
+    const pageLinks = addPagination(pagination);
     container.append(blogList, pagination);
-    return {main, blogList, blogPagination: pagination};
+    return {main, blogList, blogPagination: pagination, pageLinks};
 };

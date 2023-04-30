@@ -5,9 +5,11 @@ import {initVars} from './module/blog/initVars.js';
 {
     const blogInit = (selectorApp) => {
         const data = renderBlog(selectorApp);
-        const {blogPagination, main, blogList} = data;
-        const $ = {blogPagination, main, blogList};
+        console.log(' : ',data);
+        const {blogPagination, main, blogList, pageLinks} = data;
+        const $ = {blogPagination, main, blogList, pageLinks};
         loadItemsHandler($);
+        paginationHandler($);
     };
 
     window.blogInit = blogInit;
