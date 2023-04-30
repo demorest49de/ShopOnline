@@ -109,22 +109,28 @@
     fill: #3670C7;
 }
 
-.pagination__pages{
+.pagination__list{
     display: flex;
+    flex-direction: row;
     column-gap: 6px;
     color:  #2D2D2D;
-    text-align: center;
-    justify-items: center;
 }
 
-.pagination__link{
+.pagination__item{
     width: 36px;
     height: 36px;
     border: 2px solid #2D2D2D;
     border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination__link{
     font-weight: 700;
     font-size: 16px;
     line-height: 130%;
+    text-align: center;
 }
 
 

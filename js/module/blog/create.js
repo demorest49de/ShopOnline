@@ -1,17 +1,26 @@
 
 const createPageLink = (pagination) => {
 
-    const pages = document.createElement('div');
-    pages.classList.add('pagination__pages');
-
-    for (let i = 0; i < 3; i++) {
-        const pageLink = document.createElement('a');
-        pageLink.classList.add('pagination__link');
-        pageLink.href = `#`;
-        pageLink.textContent = `${i + 1}`;
-        pages.append(pageLink);
-    }
-
+    const pages = document.createElement('nav');
+    pages.classList.add('pagination__navigation');
+    pages.ariaLabel = `pagination`;
+    pages.insertAdjacentHTML(`beforeend`,
+        `
+            <ul class="pagination__list">
+                 <li class="pagination__item"><a class="pagination__link" href="#">1</a></li>
+                 <li class="pagination__item"><a class="pagination__link" href="#">2</a></li>
+                 <li class="pagination__item"><a class="pagination__link" href="#">3</a></li>
+             </ul>
+        `);
+//
+//     for (let i = 0; i < 3; i++) {
+//         const pageLink = document.createElement('a');
+//         pageLink.classList.add('pagination__link');
+//         pageLink.href = `#`;
+//         pageLink.textContent = `${i + 1}`;
+//         pages.append(pageLink);
+//     }
+//
     pagination.append(pages);
 };
 
