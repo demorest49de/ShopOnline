@@ -1,6 +1,10 @@
+const pageSettings = {
+    currentPage: 1,
+}
+
 export const loadItemsHandler = ($) => {
     const loadArticles = async (callback) => {
-        const result = await fetch('https://gorest.co.in/public-api/posts?page=1&per_page=12');
+        const result = await fetch(`https://gorest.co.in/public-api/posts?page=${pageSettings.currentPage}&per_page=12`);
 
         const data = await result.json();
 
@@ -88,6 +92,8 @@ export const paginationHandler = ($) => {
     $.pageElems.pageList.addEventListener('click', ({target}) => {
         if(target.closest(`.${$.pageElems.pageList.className}`)){
             console.log(' : ',$.pageElems.pageList.className);
+            pageSettings.currentPage = +target.textContent;
+            loadItemsHandler($);
         }
     });
 };
