@@ -32,7 +32,7 @@ export const loadItemsHandler = ($) => {
 
         const articlesHTML = data.data.map((item, index) => {
 
-            console.log(' : ', data.meta.pagination);
+            // console.log(' : ', data.meta.pagination);
 
             const strDate = getFormattedDate();
             const strTime = getFormattedTime();
@@ -85,7 +85,6 @@ export const loadItemsHandler = ($) => {
 };
 
 export const paginationHandler = ($) => {
-    console.log(' : ', $.pageElems.links);
     $.pageElems.pageList.addEventListener('click', ({target}) => {
         if(target.closest(`.${$.pageElems.pageList.className}`)){
             console.log(' : ',$.pageElems.pageList.className);
