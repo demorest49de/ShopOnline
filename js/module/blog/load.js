@@ -32,7 +32,7 @@ export const loadItemsHandler = ($) => {
 
         const articlesHTML = data.data.map((item, index) => {
 
-            // console.log(' : ', item, index);
+            console.log(' : ', data.meta.pagination);
 
             const strDate = getFormattedDate();
             const strTime = getFormattedTime();
@@ -77,7 +77,7 @@ export const loadItemsHandler = ($) => {
 
             return article;
         });
-        console.log(' : ',articlesHTML);
+        // console.log(' : ',articlesHTML);
         $.blogList.append(...articlesHTML);
     };
 

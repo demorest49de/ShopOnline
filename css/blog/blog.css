@@ -79,9 +79,11 @@
 
 .blog__pagination {
     max-width: 254px;
-    border: 1px solid black;
+    height: 37px;
     max-height: 37px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 .article__date,
@@ -91,6 +93,21 @@
     font-size: 16px;
     line-height: 130%;
 }
+
+.pagination__left-arrow,
+.pagination__right-arrow {
+    width: 37px;
+    height: 37px;
+}
+
+.pagination__left-arrow {
+    fill: #2D2D2D;
+}
+
+.pagination__right-arrow {
+    fill: #3670C7;
+}
+
 
 @media (max-width: 1918px) {
     .blog__list {
@@ -108,7 +125,7 @@
     "eleven "
     " twelve";
 
-    justify-content: center;
+        justify-content: center;
     }
 }
 
@@ -209,7 +226,7 @@
         row-gap: 15px;
     }
 
-    .article__block{
+    .article__block {
         min-width: 190px;
     }
 
