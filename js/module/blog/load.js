@@ -87,8 +87,8 @@ export const loadItemsHandler = ($) => {
 export const paginationHandler = ($) => {
     console.log(' : ', $.pageElems.links);
     $.pageElems.pageList.addEventListener('click', ({target}) => {
-        if(target.closest('.pag')){
-
+        if(target.closest(`.${$.pageElems.pageList.className}`)){
+            console.log(' : ',$.pageElems.pageList.className);
         }
     });
 };
