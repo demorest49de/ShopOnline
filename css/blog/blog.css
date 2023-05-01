@@ -98,6 +98,7 @@
 .pagination__right-arrow {
     width: 37px;
     height: 37px;
+    cursor: pointer;
 }
 
 .pagination__left-arrow {
@@ -105,6 +106,14 @@
 }
 
 .pagination__right-arrow {
+    fill: #3670C7;
+}
+
+.pagination__arrow-not-active {
+    fill: #8F8F8F;
+}
+
+.pagination__arrow-active {
     fill: #3670C7;
 }
 

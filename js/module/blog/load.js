@@ -11,15 +11,14 @@ const setStorage = (value) => {
 
 const getStorage = () => {
     currentPage = localStorage.getItem('currentPage');
-    console.log(' : ',Number.isInteger(currentPage), currentPage);
+    // console.log(' : ', Number.isInteger(currentPage), currentPage);
 
     currentPage = currentPage && Number.isInteger(+currentPage) ? currentPage : setStorage('1');
-    console.log(' : ',currentPage);
+    // console.log(' : ', currentPage);
 };
 
 export const loadItemsHandler = ($) => {
 
-    // getStorage();
     const loadArticles = async (callback) => {
         const result = await fetch(`https://gorest.co.in/public-api/posts?page=${currentPage}&per_page=12`);
         const data = await result.json();
@@ -119,12 +118,31 @@ export const paginationHandler = ($) => {
         });
 
         $.pageElems.links.forEach(elem => {
-            if(elem.getAttribute('data-pagenumber') === currentPage){
+            if (elem.getAttribute('data-pagenumber') === currentPage) {
                 elem.parentElement.classList.add('pagination__item-active');
                 return;
             }
         });
     };
 
+    const setArrows = ($) => {
+        const arrowNodes = $.blogPagination.querySelectorAll('svg');
+        // console.log(' : ', arrowNodes);
+        const [leftArrow, rightArrow] = arrowNodes;
+        if (+currentPage !== 1) {
+            leftArrow.classList.add('pagination__arrow-active');
+        }
+
+        leftArrow.addEventListener('click', ({target}) => {
+            if (+currentPage > 1) {
+                currentPage = (+currentPage - 1);
+                console.log(' : ', currentPage);
+                setStorage(currentPage);
+                loadItemsHandler($);
+            }
+        });
+    };
+
     setPage($);
+    setArrows($);
 };
