@@ -52,7 +52,9 @@ export const loadItemsHandler = ($) => {
     };
 
     const renderArticles = (data) => {
-
+        // console.log(' : ',data);
+        endPage = data.meta.pagination.total;
+        // console.log(' : ',endPage);
         const articlesHTML = data.data.map((item, index) => {
 
             // console.log(' : ', item);
@@ -153,10 +155,17 @@ export const paginationHandler = ($) => {
         });
     };
 
-    const setArrowLink = () => {
+    const setArrowLink = ($) => {
 
+        if (+currentPage > 1) {
+            $.pageElems.leftLink.href = `blog.html?page=${+currentPage - 1}`;
+        }
+        if (+currentPage < +endPage) {
+            $.pageElems.rightLink.href = `blog.html?page=${+currentPage + 1}`;
+        }
     };
 
     setPage($);
     setArrows($);
+    setArrowLink($);
 };
