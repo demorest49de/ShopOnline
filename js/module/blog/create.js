@@ -6,7 +6,7 @@ const createPageLink = (pagination) => {
     pages.insertAdjacentHTML(`beforeend`,
         `
             <ul class="pagination__list">
-                 <li class="pagination__item"><a class="pagination__link" data-pageNumber="1" href="blog.html">1</a></li>
+                 <li class="pagination__item pagination__item-active"><a class="pagination__link" data-pageNumber="1" href="blog.html">1</a></li>
                  <li class="pagination__item"><a class="pagination__link" data-pageNumber="2" href="blog.html?page=2">2</a></li>
                  <li class="pagination__item"><a class="pagination__link" data-pageNumber="3" href="blog.html?page=3">3</a></li>
              </ul>

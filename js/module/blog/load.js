@@ -16,6 +16,7 @@ const getStorage = () => {
 
 export const loadItemsHandler = ($) => {
 
+
     getStorage();
     const loadArticles = async (callback) => {
         const result = await fetch(`https://gorest.co.in/public-api/posts?page=${currentPage}&per_page=12`);
@@ -91,22 +92,36 @@ export const loadItemsHandler = ($) => {
         `;
 
             // console.log(' : ', article);
-
             return article;
         });
         // console.log(' : ',articlesHTML);
         $.blogList.append(...articlesHTML);
     };
 
+
     loadArticles(renderArticles);
 };
 
 export const paginationHandler = ($) => {
     $.pageElems.pageList.addEventListener('click', ({target}) => {
-        if (target.closest(`.${$.pageElems.pageList.className}`)) {
-            currentPage = +(target.getAttribute('data-pageNumber'));
-            setStorage(currentPage);
-            loadItemsHandler($);
-        }
+        currentPage = +(target.getAttribute('data-pageNumber'));
+        setStorage(currentPage);
+        loadItemsHandler($);
     });
+
+    const setPage = ($) => {
+        const nodeListOf = $.pageElems.pageList.querySelectorAll('.pagination__item');
+        [...nodeListOf].forEach(element => {
+            element.classList.remove('pagination__item-active');
+        });
+
+        $.pageElems.links.forEach(elem => {
+            if(elem.getAttribute('data-pagenumber') === currentPage){
+                elem.parentElement.classList.add('pagination__item-active');
+                return;
+            }
+        });
+    };
+
+    setPage($);
 };
