@@ -104,10 +104,8 @@ export const loadItemsHandler = ($) => {
 export const paginationHandler = ($) => {
     $.pageElems.pageList.addEventListener('click', ({target}) => {
         if (target.closest(`.${$.pageElems.pageList.className}`)) {
-            // console.log(' : ',$.pageElems.pageList.className);
             currentPage = +(target.getAttribute('data-pageNumber'));
             setStorage(currentPage);
-            console.log(' : ', pageSettings.currentPage);
             loadItemsHandler($);
         }
     });
