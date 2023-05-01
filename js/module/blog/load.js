@@ -1,11 +1,24 @@
-const pageSettings = {
-    currentPage: 1,
-}
+const pageSettings = () => {
+    return {currentPage: ""};
+};
+
+let {currentPage} = pageSettings();
+
+const setStorage = (value) => {
+    localStorage.setItem('currentPage', `${value}`);
+};
+
+const getStorage = () => {
+    currentPage = localStorage.getItem('currentPage');
+    // console.log(' : ',Number.isInteger(+currentPage), currentPage);
+    currentPage = Number.isInteger(+currentPage) ? currentPage : setStorage('1');
+};
 
 export const loadItemsHandler = ($) => {
-    const loadArticles = async (callback) => {
-        const result = await fetch(`https://gorest.co.in/public-api/posts?page=${pageSettings.currentPage}&per_page=12`);
 
+    getStorage();
+    const loadArticles = async (callback) => {
+        const result = await fetch(`https://gorest.co.in/public-api/posts?page=${currentPage}&per_page=12`);
         const data = await result.json();
 
         callback(data);
@@ -36,7 +49,7 @@ export const loadItemsHandler = ($) => {
 
         const articlesHTML = data.data.map((item, index) => {
 
-            // console.log(' : ', data.meta.pagination);
+            // console.log(' : ', item);
 
             const strDate = getFormattedDate();
             const strTime = getFormattedTime();
@@ -90,9 +103,11 @@ export const loadItemsHandler = ($) => {
 
 export const paginationHandler = ($) => {
     $.pageElems.pageList.addEventListener('click', ({target}) => {
-        if(target.closest(`.${$.pageElems.pageList.className}`)){
-            console.log(' : ',$.pageElems.pageList.className);
-            pageSettings.currentPage = +target.textContent;
+        if (target.closest(`.${$.pageElems.pageList.className}`)) {
+            // console.log(' : ',$.pageElems.pageList.className);
+            currentPage = +(target.getAttribute('data-pageNumber'));
+            setStorage(currentPage);
+            console.log(' : ', pageSettings.currentPage);
             loadItemsHandler($);
         }
     });
