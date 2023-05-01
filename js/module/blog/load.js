@@ -150,7 +150,6 @@ export const paginationHandler = ($) => {
                 currentPage = (+currentPage - 1);
                 setStorage(currentPageStr, currentPage);
                 setPage($);
-                setArrowLink($);
                 anchor.click();
             }
         });
