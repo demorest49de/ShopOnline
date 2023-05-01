@@ -1,16 +1,20 @@
 const pageSettings = () => {
-    return {currentPage: ""};
+    return {
+        currentPage: "",
+        endPage: "",
+        currentPageStr: 'currentPage',
+    };
 };
 
-let {currentPage} = pageSettings();
+let {currentPage, currentPageStr, endPage} = pageSettings();
 
-const setStorage = (value) => {
-    localStorage.setItem('currentPage', `${value}`);
+const setStorage = (key, value) => {
+    localStorage.setItem(key, `${value}`);
     return value;
 };
 
 const getStorage = () => {
-    currentPage = localStorage.getItem('currentPage');
+    currentPage = localStorage.getItem(currentPageStr);
     // console.log(' : ', Number.isInteger(currentPage), currentPage);
 
     currentPage = currentPage && Number.isInteger(+currentPage) ? currentPage : setStorage('1');
@@ -105,7 +109,7 @@ export const loadItemsHandler = ($) => {
 export const paginationHandler = ($) => {
     $.pageElems.pageList.addEventListener('click', ({target}) => {
         currentPage = +(target.getAttribute('data-pageNumber'));
-        setStorage(currentPage);
+        setStorage(currentPageStr, currentPage);
         loadItemsHandler($);
     });
 
@@ -129,18 +133,28 @@ export const paginationHandler = ($) => {
         const arrowNodes = $.blogPagination.querySelectorAll('svg');
         // console.log(' : ', arrowNodes);
         const [leftArrow, rightArrow] = arrowNodes;
+
+        const leftLink = $.pageElems.leftLink;
+
         if (+currentPage !== 1) {
             leftArrow.classList.add('pagination__arrow-active');
         }
 
-        leftArrow.addEventListener('click', ({target}) => {
+        leftLink.addEventListener('click', (ev) => {
+            const target = ev.target;
+            const anchor = target.closest('.pagination__link-left');
+            console.log(' : ', anchor);
             if (+currentPage > 1) {
                 currentPage = (+currentPage - 1);
-                console.log(' : ', currentPage);
-                setStorage(currentPage);
-                loadItemsHandler($);
+                setStorage(currentPageStr, currentPage);
+                setPage($);
+                anchor.click();
             }
         });
+    };
+
+    const setArrowLink = () => {
+
     };
 
     setPage($);

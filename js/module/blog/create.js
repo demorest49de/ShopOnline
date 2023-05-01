@@ -21,18 +21,25 @@ const addPagination = (pagination) => {
 
     pagination.insertAdjacentHTML('afterbegin',
         `
-        <svg class="pagination__left-arrow" xmlns="http://www.w3.org/2000/svg"><use href="./img/blog/arrows.svg#left"></use></svg>
-
+        <a class="pagination__link-left">
+            <svg class="pagination__left-arrow" xmlns="http://www.w3.org/2000/svg"><use href="./img/blog/arrows.svg#left"></use></svg>
+        </a>
         `
     );
 
     const pageElems = createPageLink(pagination);
-
+    const leftLink = pagination.querySelector('.pagination__link-left');
+    pageElems.leftLink = leftLink;
     pagination.insertAdjacentHTML('beforeend',
         `
+        <a class="pagination__link-right">
             <svg class="pagination__right-arrow" xmlns="http://www.w3.org/2000/svg"><use href="./img/blog/arrows.svg#right"></use></svg>
+        </a>
         `
     );
+
+    const rightLink = pagination.querySelector('.pagination__link-right');
+    pageElems.rightLink = rightLink;
     return pageElems;
 };
 
