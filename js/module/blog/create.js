@@ -32,7 +32,7 @@ const addPagination = (pagination) => {
     pageElems.leftLink = leftLink;
     pagination.insertAdjacentHTML('beforeend',
         `
-        <a class="pagination__link-right">
+        <a class="pagination__link-right" href="blog.html?page=2">
             <svg class="pagination__right-arrow" xmlns="http://www.w3.org/2000/svg"><use href="./img/blog/arrows.svg#right"></use></svg>
         </a>
         `

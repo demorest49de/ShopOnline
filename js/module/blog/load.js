@@ -17,7 +17,7 @@ const getStorage = () => {
     currentPage = localStorage.getItem(currentPageStr);
     // console.log(' : ', Number.isInteger(currentPage), currentPage);
 
-    currentPage = currentPage && Number.isInteger(+currentPage) ? currentPage : setStorage('1');
+    currentPage = currentPage && Number.isInteger(+currentPage) ? currentPage : setStorage(currentPageStr, '1');
     // console.log(' : ', currentPage);
 };
 
@@ -54,7 +54,7 @@ export const loadItemsHandler = ($) => {
     const renderArticles = (data) => {
         // console.log(' : ',data);
         endPage = data.meta.pagination.total;
-        // console.log(' : ',endPage);
+        setStorage('endPage', endPage);
         const articlesHTML = data.data.map((item, index) => {
 
             // console.log(' : ', item);
@@ -141,7 +141,7 @@ export const paginationHandler = ($) => {
         if (+currentPage !== 1) {
             leftArrow.classList.add('pagination__arrow-active');
         }
-
+        console.log(' : ', currentPage);
         leftLink.addEventListener('click', (ev) => {
             const target = ev.target;
             const anchor = target.closest('.pagination__link-left');
@@ -150,19 +150,23 @@ export const paginationHandler = ($) => {
                 currentPage = (+currentPage - 1);
                 setStorage(currentPageStr, currentPage);
                 setPage($);
+                setArrowLink($);
                 anchor.click();
             }
         });
     };
 
     const setArrowLink = ($) => {
-
+        endPage = localStorage.getItem('endPage');
         if (+currentPage > 1) {
             $.pageElems.leftLink.href = `blog.html?page=${+currentPage - 1}`;
+            console.log(' : ', $.pageElems.leftLink.href);
         }
         if (+currentPage < +endPage) {
             $.pageElems.rightLink.href = `blog.html?page=${+currentPage + 1}`;
+            console.log(' : ', $.pageElems.rightLink.href);
         }
+        console.log(' : ',endPage);
     };
 
     setPage($);
