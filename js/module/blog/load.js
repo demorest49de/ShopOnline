@@ -6,18 +6,20 @@ let {currentPage} = pageSettings();
 
 const setStorage = (value) => {
     localStorage.setItem('currentPage', `${value}`);
+    return value;
 };
 
 const getStorage = () => {
     currentPage = localStorage.getItem('currentPage');
-    // console.log(' : ',Number.isInteger(+currentPage), currentPage);
-    currentPage = Number.isInteger(+currentPage) ? currentPage : setStorage('1');
+    console.log(' : ',Number.isInteger(currentPage), currentPage);
+
+    currentPage = currentPage && Number.isInteger(+currentPage) ? currentPage : setStorage('1');
+    console.log(' : ',currentPage);
 };
 
 export const loadItemsHandler = ($) => {
 
-
-    getStorage();
+    // getStorage();
     const loadArticles = async (callback) => {
         const result = await fetch(`https://gorest.co.in/public-api/posts?page=${currentPage}&per_page=12`);
         const data = await result.json();
@@ -91,10 +93,9 @@ export const loadItemsHandler = ($) => {
              </article>
         `;
 
-            // console.log(' : ', article);
             return article;
         });
-        // console.log(' : ',articlesHTML);
+
         $.blogList.append(...articlesHTML);
     };
 
@@ -110,6 +111,8 @@ export const paginationHandler = ($) => {
     });
 
     const setPage = ($) => {
+        getStorage();
+
         const nodeListOf = $.pageElems.pageList.querySelectorAll('.pagination__item');
         [...nodeListOf].forEach(element => {
             element.classList.remove('pagination__item-active');

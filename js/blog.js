@@ -9,8 +9,8 @@ import {renderBlog} from './module/blog/render.js';
         // const {links, pageList} = pageElems;
         // console.log(' : ',links);
         const $ = {blogPagination, main, blogList, pageElems};
-        loadItemsHandler($);
         paginationHandler($);
+        loadItemsHandler($);
     };
 
     window.blogInit = blogInit;
