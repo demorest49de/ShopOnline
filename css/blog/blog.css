@@ -1,10 +1,10 @@
 .blog {
-    padding-top: 172px;
+    padding-top: 147px;
     padding-bottom: 147px;
 }
 
 .blog__container {
-    padding: 0 243px;
+    padding: 0 200px;
 }
 
 .blog__list {
@@ -148,7 +148,7 @@
 }
 
 
-@media (max-width: 1918px) {
+@media (max-width: 1756px) {
     .blog__list {
         grid-template-rows: repeat(12, 195px);
 
