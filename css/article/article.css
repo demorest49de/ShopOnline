@@ -36,3 +36,7 @@
     color: inherit;
     margin-bottom: 40px;
 }
+
+.ba__mainblock{
+    display: grid;
+}
