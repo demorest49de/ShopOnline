@@ -100,12 +100,9 @@
     height: 37px;
 }
 
-.pagination__left-arrow {
+.pagination__left-arrow,
+.pagination__right-arrow{
     fill: #8F8F8F;
-}
-
-.pagination__right-arrow {
-    fill: #3670C7;
 }
 
 .pagination__arrow-not-active {

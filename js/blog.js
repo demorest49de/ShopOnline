@@ -1,4 +1,4 @@
-import {loadItemsHandler, paginationHandler} from "./module/blog/load.js";
+import {loadItemsHandler, paginationClickHandler, paginationHandler} from "./module/blog/load.js";
 import {renderBlog} from './module/blog/render.js';
 
 
@@ -9,6 +9,8 @@ import {renderBlog} from './module/blog/render.js';
         // const {links, pageList} = pageElems;
         // console.log(' : ',links);
         const $ = {blogPagination, main, blogList, pageElems};
+
+        paginationClickHandler($);
         paginationHandler($);
         loadItemsHandler($);
     };

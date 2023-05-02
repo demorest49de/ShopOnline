@@ -13,7 +13,7 @@ const setStorage = (key, value) => {
     return value;
 };
 
-const getStorage = () => {
+const getPageFromStorage = () => {
     currentPage = localStorage.getItem(currentPageStr);
     // console.log(' : ', Number.isInteger(currentPage), currentPage);
 
@@ -52,7 +52,7 @@ export const loadItemsHandler = ($) => {
     };
 
     const renderArticles = (data) => {
-        // console.log(' : ',data);
+
         endPage = data.meta.pagination.total;
         setStorage('endPage', endPage);
         const articlesHTML = data.data.map((item, index) => {
@@ -101,72 +101,116 @@ export const loadItemsHandler = ($) => {
             return article;
         });
 
+        while ($.blogList.childElementCount > 0) {
+            $.blogList.childNodes[0].remove();
+        }
+
         $.blogList.append(...articlesHTML);
     };
-
 
     loadArticles(renderArticles);
 };
 
-export const paginationHandler = ($) => {
-    $.pageElems.pageList.addEventListener('click', ({target}) => {
-        currentPage = +(target.getAttribute('data-pageNumber'));
-        setStorage(currentPageStr, currentPage);
-        loadItemsHandler($);
+const setPage = ($) => {
+    getPageFromStorage();
+
+    const nodeListOf = $.pageElems.pageList.querySelectorAll('.pagination__item');
+    [...nodeListOf].forEach(element => {
+        element.classList.remove('pagination__item-active');
     });
 
-    const setPage = ($) => {
-        getStorage();
+    $.pageElems.links.forEach(elem => {
+        if (elem.getAttribute('data-pagenumber') === currentPage) {
+            elem.parentElement.classList.add('pagination__item-active');
+            return;
+        }
+    });
+};
 
-        const nodeListOf = $.pageElems.pageList.querySelectorAll('.pagination__item');
-        [...nodeListOf].forEach(element => {
-            element.classList.remove('pagination__item-active');
-        });
+const setArrows = ($) => {
+    const arrowNodes = $.blogPagination.querySelectorAll('svg');
+    const [leftArrow, rightArrow] = arrowNodes;
 
-        $.pageElems.links.forEach(elem => {
-            if (elem.getAttribute('data-pagenumber') === currentPage) {
-                elem.parentElement.classList.add('pagination__item-active');
-                return;
+    if (+currentPage !== 1) {
+        leftArrow.classList.add('pagination__arrow-active');
+    }else{
+        leftArrow.classList.remove('pagination__arrow-active');
+    }
+
+    if (+currentPage >= 3) {
+        rightArrow.classList.remove('pagination__arrow-active');
+    }else{
+        rightArrow.classList.add('pagination__arrow-active');
+    }
+
+
+};
+
+const setArrowLink = ($) => {
+    endPage = localStorage.getItem('endPage');
+    if (+currentPage > 1) {
+        $.pageElems.leftLink.href = `blog.html?page=${+currentPage - 1}`;
+    }
+    if (+currentPage < +endPage) {
+        $.pageElems.rightLink.href = `blog.html?page=${+currentPage + 1}`;
+    }
+};
+
+export const paginationClickHandler = ($) => {
+    const pageClick = () => {
+        $.pageElems.pageList.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            const target = ev.target;
+            console.log(' : ',currentPage, endPage);
+            const targetPage = target.getAttribute('data-pageNumber');
+            console.log(' : ',targetPage);
+            if(+targetPage !== +currentPage){
+                currentPage = (target.getAttribute('data-pageNumber'));
+                setStorage(currentPageStr, currentPage);
+                loadItemsHandler($);
+                paginationHandler($);
             }
         });
     };
 
-    const setArrows = ($) => {
-        const arrowNodes = $.blogPagination.querySelectorAll('svg');
-        // console.log(' : ', arrowNodes);
-        const [leftArrow, rightArrow] = arrowNodes;
-
+    const arrowsClick = () => {
         const leftLink = $.pageElems.leftLink;
+        const rightLink = $.pageElems.rightLink;
 
-        if (+currentPage !== 1) {
-            leftArrow.classList.add('pagination__arrow-active');
-        }
-        console.log(' : ', currentPage);
         leftLink.addEventListener('click', (ev) => {
+            ev.preventDefault();
             const target = ev.target;
             const anchor = target.closest('.pagination__link-left');
-            console.log(' : ', anchor);
-            if (+currentPage > 1) {
+
+            if (anchor && (+currentPage > 1)) {
                 currentPage = (+currentPage - 1);
                 setStorage(currentPageStr, currentPage);
-                setPage($);
-                anchor.click();
+                loadItemsHandler($);
+                paginationHandler($);
+            }
+        });
+
+        rightLink.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            const target = ev.target;
+            const anchor = target.closest('.pagination__link-right');
+
+            // if (anchor && (+currentPage <= +endPage)) {
+            if (anchor && (+currentPage < 3)) {
+                currentPage = (+currentPage + 1);
+                setStorage(currentPageStr, currentPage);
+                loadItemsHandler($);
+                paginationHandler($);
             }
         });
     };
 
-    const setArrowLink = ($) => {
-        endPage = localStorage.getItem('endPage');
-        if (+currentPage > 1) {
-            $.pageElems.leftLink.href = `blog.html?page=${+currentPage - 1}`;
-            console.log(' : ', $.pageElems.leftLink.href);
-        }
-        if (+currentPage < +endPage) {
-            $.pageElems.rightLink.href = `blog.html?page=${+currentPage + 1}`;
-            console.log(' : ', $.pageElems.rightLink.href);
-        }
-        console.log(' : ',endPage);
-    };
+
+    pageClick();
+    arrowsClick();
+};
+
+export const paginationHandler = ($) => {
 
     setPage($);
     setArrows($);
