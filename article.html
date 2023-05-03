@@ -6,10 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="js/article.js"></script>
+    <script type="module" src="js/module/article/article.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            articleInit('#app');
+        });
+    </script>
     <title>здесь название статьи</title>
 </head>
 <body class="blog-article ba">
+    <div id="app"></div>
     <header class="ba__header">
         <div class="ba__container">
             <nav class="ba__navigation">
@@ -33,12 +39,55 @@
     <main>
         <section class="ba__section">
             <div class="ba__container">
-                <div class="ba__mainblock">
+                <div class="ba__grid-container">
                     <div class="ba__hero">
                         <h1 class="ba__title">здесь название статьи</h1>
-                        <p></p>
+                        <p class="ba__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam
+                            dignissimos dolorem id impedit iusto laudantium nulla officiis, optio pariatur possimus
+                            quaerat, quisquam, similique temporibus tenetur unde velit? Aliquam amet autem consectetur
+                            ipsa maiores minus necessitatibus nesciunt nisi odit placeat, porro quae quidem sapiente sed
+                            ut velit veritatis voluptas voluptatum.</p>
+                        <div class="ba__subblock">
+                            <a class="ba__backlink">
+                                <svg class="ba__left-arrow" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="./img/blog/arrows.svg#left"></use>
+                                </svg>
+                                <span class="ba__link-text">К списку статей</span>
+                            </a>
+                            <div class="ba__about-info">
+                                <span class="ba__author">Инга Соловьева</span>
+                                <div class="ba__reviews-subblock">
+                                    <div class="article__datetime">
+                                        <span class="article__date">22.04.2023,</span>
+                                        <span class="article__time">15:15</span>
+                                    </div>
+
+                                    <div class="article__views-comments">
+                                <span class="article__text-block">
+                                <svg class="article__icon" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="./img/blog/views-chat.svg#views"></use>
+                                </svg>
+                                    1.1K</span>
+                                        <span class="article__text-block">
+                                <svg class="article__icon" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="./img/blog/views-chat.svg#chat"></use>
+                                </svg>
+                                    150</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <aside class="ba__adv"></aside>
+                    <aside class="ba__adv">
+                        <ul class="ba__adv-list">
+                            <li class="ba__adv-item">
+                                <figure>
+                                    <img src="" alt="">
+                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </aside>
                 </div>
             </div>
         </section>

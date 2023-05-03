@@ -1,5 +1,4 @@
 
-
 .ba__container {
     padding: 0 75px;
     color: #2D2D2D;
@@ -19,17 +18,17 @@
     color: #525252;
 }
 
-.ba__nav-arrow{
+.ba__nav-arrow {
     width: 6px;
     height: 10px;
     margin: 0 16px;
 }
 
-.ba__header{
+.ba__header {
     padding: 148px 0 80px 0;
 }
 
-.ba__title{
+.ba__title {
     font-weight: 700;
     font-size: 50px;
     line-height: 130%;
@@ -37,6 +36,67 @@
     margin-bottom: 40px;
 }
 
-.ba__mainblock{
+.ba__grid-container {
     display: grid;
+}
+
+.ba__hero {
+    max-width: 1095px;
+}
+
+.ba__text {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 150%;
+    margin-bottom: 100px;
+}
+
+.ba__subblock {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.ba__backlink {
+    display: flex;
+    justify-content: center;
+}
+
+.ba__link-text {
+    padding-top: 2px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.ba__left-arrow {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: #2D2D2D;
+}
+
+.ba__about-info {
+    max-height: 114px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.ba__author {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 150%;
+    color: #000000;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.ba__reviews-subblock {
+    max-width: 173px;
+    color: #8F8F8F;
+    height: 61px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
