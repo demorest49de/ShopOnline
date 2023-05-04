@@ -39,11 +39,11 @@ const createArticleMain = () => {
                             ноги не мёрзнут, не потеют, и чувствуют себя очень комфортно. Неудивительно,
                             что по статистике больше 60% покупателей выбирает обувь именно из гладкой
                             натуральной кожи. Вдобавок кожа практична и не требует трудоёмкого ухода.</p>
-                        <p class="ba__text">Но это совсем не означает, что можно раз в полгода протереть обувь тряпочкой
-                            и
-                            на этом остановиться. Так же, как кожа лица и тела, материал обуви нуждается в
-                            заботе. Регулярный уход надолго продлит срок службы любимой пары и сделает её
-                            аккуратной и сияющей, словно только что из магазина.</p>
+<!--                        <p class="ba__text">Но это совсем не означает, что можно раз в полгода протереть обувь тряпочкой-->
+<!--                            и-->
+<!--                            на этом остановиться. Так же, как кожа лица и тела, материал обуви нуждается в-->
+<!--                            заботе. Регулярный уход надолго продлит срок службы любимой пары и сделает её-->
+<!--                            аккуратной и сияющей, словно только что из магазина.</p>-->
                         <div class="ba__subblock">
                             <a class="ba__backlink" href="blog.html">
                                 <svg class="ba__left-arrow" xmlns="http://www.w3.org/2000/svg">
@@ -108,5 +108,21 @@ export const createMarkup = (selectorApp) => {
     const main = createArticleMain();
 
     app.append(header, main);
-
+    const breadCrumbsTitle = header.querySelector('.ba__item:nth-child(3)');
+    const documentTitle = document.head.title;
+    const title = main.querySelector('.ba__title');
+    const text = main.querySelector('.ba__text');
+    const author = main.querySelector('.ba__author');
+    const articleDate = main.querySelector('.article__date');
+    const articleTime = main.querySelector('.article__time');
+    const vars = {
+        breadCrumbsTitle,
+        documentTitle,
+        title,
+        text,
+        author,
+        articleDate,
+        articleTime
+    };
+    return vars;
 };
