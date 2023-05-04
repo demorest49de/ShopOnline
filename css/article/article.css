@@ -28,6 +28,10 @@
     padding: 148px 0 80px 0;
 }
 
+main{
+    padding-bottom: 350px;
+}
+
 .ba__title {
     font-weight: 700;
     font-size: 50px;
