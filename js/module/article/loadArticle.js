@@ -27,7 +27,7 @@ export const loadItemsHandler = ($) => {
 
     const updateUser = (data) => {
         const api =  data.data;
-        console.log(' : ',data.data);
+
         $.author.textContent = api.name;
     };
 
@@ -42,7 +42,7 @@ export const loadItemsHandler = ($) => {
     const id = loadArticle(searchObject, updateArticle);
 
     id.then(id => {
-        console.log(' : ', id);
+
         getUser(id, updateUser);
     });
 
