@@ -109,7 +109,6 @@ export const createMarkup = (selectorApp) => {
 
     app.append(header, main);
     const breadCrumbsTitle = header.querySelector('.ba__item:nth-child(3)');
-    const documentTitle = document.head.title;
     const title = main.querySelector('.ba__title');
     const text = main.querySelector('.ba__text');
     const author = main.querySelector('.ba__author');
@@ -117,7 +116,6 @@ export const createMarkup = (selectorApp) => {
     const articleTime = main.querySelector('.article__time');
     const vars = {
         breadCrumbsTitle,
-        documentTitle,
         title,
         text,
         author,
