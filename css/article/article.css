@@ -58,13 +58,21 @@
 .ba__adv-image-block {
     height: 328px;
     width: 532px;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.ba__adv-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
+.ba__adv-item:nth-child(1)
+.ba__adv-image-block {
+    background-image: linear-gradient(180.72deg, rgba(0, 0, 0, 0) 37.06%,
+    rgba(0, 0, 0, 0.44) 75.75%, rgba(0, 0, 0, 0.64) 100%), url("../../img/article/banner/banner-turkey.jpg");
+}
+
+.ba__adv-item:nth-child(2)
+.ba__adv-image-block {
+    background-image: linear-gradient(180.72deg, rgba(0, 0, 0, 0) 37.06%,
+    rgba(0, 0, 0, 0.44) 75.75%, rgba(0, 0, 0, 0.64) 100%), url("../../img/article/banner/banner-reno.jpg");
 }
 
 .ba__adv-item {
@@ -88,14 +96,14 @@
     left: 30px;
 }
 
-.ba__image-text-big{
+.ba__image-text-big {
     font-weight: 700;
     font-size: 32px;
     line-height: 130%;
     max-width: 435px;
 }
 
-.ba__image-text-small{
+.ba__image-text-small {
     font-weight: 700;
     font-size: 16px;
     line-height: 130%;
@@ -103,23 +111,23 @@
 }
 
 .ba__adv-item:nth-child(1)
-.ba__image-text-big{
+.ba__image-text-big {
     bottom: 57px;
 }
 
 .ba__adv-item:nth-child(2)
-.ba__image-text-big{
+.ba__image-text-big {
     bottom: 72px;
 }
 
 
 .ba__adv-item:nth-child(1)
-.ba__image-text-small{
+.ba__image-text-small {
     bottom: 27px;
 }
 
 .ba__adv-item:nth-child(2)
-.ba__image-text-small{
+.ba__image-text-small {
     bottom: 38px;
 }
 
