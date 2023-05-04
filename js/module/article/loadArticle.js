@@ -17,16 +17,17 @@ export const loadItemsHandler = ($) => {
 
     const updateArticle = (data) => {
         const apiData = data.data;
-        $.breadCrumbsTitle.textContent = apiData.title;
-        $.title.textContent = apiData.title;
-        document.title = apiData.title;
+        const textTitle = apiData.title.slice(1, -1);
+        $.breadCrumbsTitle.textContent = textTitle;
+        $.title.textContent = textTitle;
+        document.title = textTitle;
         $.text.textContent = apiData.body;
 
         return apiData.user_id;
     };
 
     const updateUser = (data) => {
-        const api =  data.data;
+        const api = data.data;
 
         $.author.textContent = api.name;
     };
