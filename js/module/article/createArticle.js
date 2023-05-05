@@ -5,12 +5,12 @@ const createArticleHeader = () => {
         <div class="ba__container">
             <nav class="ba__navigation">
                 <ul class="ba__bread-crumbs">
-                    <li class="ba__item"><a class="ba__link" href="/">Главная</a>
+                    <li class="ba__item"><a class="ba__link" href="/ShopOnline">Главная</a>
                         <svg class="ba__nav-arrow">
                             <use href="./img/article/nav-arrow.svg#nav-arrow"></use>
                         </svg>
                     </li>
-                    <li class="ba__item"><a class="ba__link" href="/blog.html">Блог</a>
+                    <li class="ba__item"><a class="ba__link" href="/ShopOnline/blog">Блог</a>
                         <svg class="ba__nav-arrow">
                             <use href="./img/article/nav-arrow.svg#nav-arrow"></use>
                         </svg>
