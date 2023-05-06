@@ -52,7 +52,7 @@ const createArticleMain = () => {
                                 <span class="ba__link-text">К списку статей</span>
                             </a>
                             <div class="ba__about-info">
-                                <span class="ba__author">Инга Соловьева</span>
+                                <span class="ba__author"></span>
                                 <div class="ba__reviews-subblock">
                                     <div class="article__datetime">
                                         <span class="article__date">22.04.2023,</span>
