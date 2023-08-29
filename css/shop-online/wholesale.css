@@ -1,14 +1,16 @@
-.wholesale__card{
+.wholesale {
     padding-top: 50px;
-}
-.wholesale__title{
     font-family: Lato;
     color: #2D2D2D;
+}
+
+.wholesale__title {
     font-size: 50px;
     font-weight: 700;
     line-height: 130%;
     margin-bottom: 20px;
 }
+
 .wholesale__cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, 420px);
@@ -19,15 +21,47 @@
 
 }
 
-.wholesale__card{
-    border: 1px solid black;
+.card {
     position: relative;
 }
 
-.card__link{
+.card__link {
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     position: absolute;
 }
+
+.card__figure {
+    height: 295px;
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.card__price-block {
+    display: flex;
+    align-items: center;
+    column-gap: 28px;
+    margin-bottom: 15px;
+}
+
+.card__new-price {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.card__old-price {
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.card__item-text{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+
