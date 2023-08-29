@@ -1,0 +1,33 @@
+.wholesale__card{
+    padding-top: 50px;
+}
+.wholesale__title{
+    font-family: Lato;
+    color: #2D2D2D;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 130%;
+    margin-bottom: 20px;
+}
+.wholesale__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 420px);
+    grid-auto-rows: 394px;
+    row-gap: 50px;
+    column-gap: 30px;
+    justify-content: center;
+
+}
+
+.wholesale__card{
+    border: 1px solid black;
+    position: relative;
+}
+
+.card__link{
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}

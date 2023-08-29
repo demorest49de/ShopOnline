@@ -1,3 +1,7 @@
+.item {
+    padding-bottom: 50px;
+}
+
 .item__container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
