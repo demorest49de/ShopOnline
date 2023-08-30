@@ -31,17 +31,17 @@ export const loadItemsHandler = ($) => {
     };
 
     const getFormattedDate = () => {
-        var dt_options = {day: `numeric`, month: `long`, year: `numeric`};
-        var today = new Date();
-        var strDate = today.toLocaleDateString("ru-RU", dt_options).split(" ").slice(0, -1);
+        const dt_options = {day: `numeric`, month: `long`, year: `numeric`};
+        const today = new Date();
+        const strDate = today.toLocaleDateString("ru-RU", dt_options).split(" ").slice(0, -1);
         const [monthDate, monthName, yearNumber] = strDate;
         return `${monthDate} ${monthName} ${yearNumber}, `;
     };
 
     const getFormattedTime = () => {
-        var dt_options = {hour: `2-digit`, minute: `2-digit`};
-        var today = new Date();
-        var strTime = today.toLocaleTimeString("ru-RU", dt_options).split(" ");
+        const dt_options = {hour: `2-digit`, minute: `2-digit`};
+        const today = new Date();
+        const strTime = today.toLocaleTimeString("ru-RU", dt_options).split(" ");
         return strTime.toString();
     };
 

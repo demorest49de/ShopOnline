@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Пара футболок",
+    "discountClass": "card__discount-50",
+    "newPrice": 1299,
+    "oldPrice": 0
+  },
+  {
+    "name": "Кроссовки",
+    "discountClass": "card__discount-40",
+    "newPrice": 2099,
+    "oldPrice": 0
+  },
+  {
+    "name": "Постельное белье",
+    "discountClass": "card__discount-10",
+    "newPrice": 3902,
+    "oldPrice": 0
+  },
+  {
+    "name": "Фен",
+    "discountClass": "card__discount-30",
+    "newPrice": 2999,
+    "oldPrice": 0
+  },
+  {
+    "name": "Постельное белье",
+    "discountClass": "card__discount-10",
+    "newPrice": 3902,
+    "oldPrice": 0
+  },
+  {
+    "name": "Фен",
+    "discountClass": "card__discount-30",
+    "newPrice": 2999,
+    "oldPrice": 0
+  },
+  {
+    "name": "Варежки-мишки",
+    "discountClass": "card__discount-30",
+    "newPrice": 540,
+    "oldPrice": 0
+  },
+  {
+    "name": "Пара футболок",
+    "discountClass": "card__discount-50",
+    "newPrice": 1299,
+    "oldPrice": 0
+  }
+]
