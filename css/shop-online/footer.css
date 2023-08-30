@@ -3,11 +3,12 @@
     background-color: #2D2D2D;
 }
 
-.footer__container {
+.footer__block {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: start;
+    gap: 60px;
 }
 
 .footer__logo-block {
@@ -62,4 +63,22 @@
 .footer__list-social {
     display: flex;
     gap: 20px;
+}
+
+.footer__author-info {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    min-width: 475px;
+}
+
+.footer__block:nth-child(1) {
+    margin-bottom: 50px;
+}
+
+.footer__copyright,
+.footer__author-info {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 130%;
 }
