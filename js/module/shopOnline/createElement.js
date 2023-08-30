@@ -95,7 +95,10 @@ const createSection = (name) => {
 
 
 const createFooter = (name) => {
-
+    window.document.body.insertAdjacentHTML('beforeend',
+        `
+        
+        `);
 };
 
 export const addElements = (elems) => {
@@ -130,7 +133,7 @@ export const createCards = async () => {
                                 <img class="card__image" src="img/wholesale/photo${count}.png"
                                                               alt="${card.name}"></figure>
                             <div class="card__price-block"><span class="card__new-price">${card.newPrice} ₽</span>
-                                <span class="card__old-price">${card.newPrice*2} ₽</span>
+                                <span class="card__old-price">${card.newPrice * 2} ₽</span>
                             </div>
                             <p class="card__item-text">${card.name}</p>
                         </a>
