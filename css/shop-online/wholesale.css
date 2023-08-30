@@ -64,4 +64,40 @@
     line-height: 150%;
 }
 
+.card__figure:after{
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    bottom: 120px;
+    left: 20px;
+    border-radius: 50px;
+    background-color: #FFBD13;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 130%;
+    color: #FFFFFF;
+}
+
+.card__discount-50:after{
+    content: "-50%";
+}
+
+.card__discount-40:after{
+    content: "-40%";
+}
+
+.card__discount-30:after{
+    content: "-30%";
+}
+
+.card__discount-20:after{
+    content: "-20%";
+}
+
+.card__discount-10:after{
+    content: "-10%";
+}
 
