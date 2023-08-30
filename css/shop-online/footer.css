@@ -47,3 +47,19 @@
 .footer__elem:not(:nth-last-child(1)) {
     padding-bottom: 15px;
 }
+
+.footer__contacts .footer__list {
+    margin-bottom: 36px;
+}
+
+
+.footer__contacts .footer__elem {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 130%;
+}
+
+.footer__list-social {
+    display: flex;
+    gap: 20px;
+}
