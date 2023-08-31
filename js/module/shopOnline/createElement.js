@@ -6,6 +6,7 @@ const createSection = (name) => {
         main.insertAdjacentHTML('beforeend',
             `
                 <section class="item" aria-label="Каталог товаров">
+                    <h2 class="visually-hidden">товары и скидки</h2>
                     <div class="container item__container">
         
                         <a href="#" class="item__gallery item__gallery-notebook" aria-label="Распродажа ноутбуков">
@@ -27,7 +28,8 @@ const createSection = (name) => {
                             </p>
                         </a>
         
-                        <a href="#" class="item__gallery item__gallery-discount-top-left item__gallery-shoes">
+                        <a href="#" class="item__gallery item__gallery-discount-top-left item__gallery-shoes"
+                        aria-label="вторая пара кросовок в подарок">
                             <img class="item__image-shoes" src="img/item/3.jpg" alt="Обувь">
                         </a>
         
@@ -68,10 +70,9 @@ const createSection = (name) => {
                             </p>
                         </a>
         
-                        <a href="#" class="item__gallery item__gallery-ny-toys">
+                        <a href="#" class="item__gallery item__gallery-ny-toys" aria-label="Елочные украшения">
                             <img class="item__image-ny-toys" src="img/item/10.jpg" alt="Елочные украшения">
                         </a>
-        
                     </div>
                 </section>
             `);
@@ -81,8 +82,9 @@ const createSection = (name) => {
         main.insertAdjacentHTML('beforeend',
             `
             <section class="wholesale" aria-label="Распродажа">
+            <h2 class="visually-hidden">Распродажа</h2>
             <div class="container">
-                <h2 class="wholesale__title">Это выгодно!</h2>
+                <h3 class="wholesale__title">Это выгодно!</h3>
                 <ul class="wholesale__cards">
                 </ul>
             </div>
